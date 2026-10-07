@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import Hero from "../../components/common/Hero";
 import AiCamOverviewSection from "../../components/ai-cam/AiCamOverviewSection";
+import AiCamFeaturesSection from "../../components/ai-cam/AiCamFeaturesSection";
 import Footer from "../../components/layout/Footer";
 
 const heroData = {
@@ -38,6 +39,7 @@ export default function AiCam() {
     <main className="min-h-screen bg-[#05090b] font-['Manrope'] text-white">
       <Hero data={heroData} />
       <AiCamOverviewSection />
+      <AiCamFeaturesSection />
       <Footer />
     </main>
   );

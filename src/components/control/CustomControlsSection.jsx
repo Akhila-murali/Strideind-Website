@@ -21,9 +21,7 @@ const capabilities = [
 
 export default function CustomControlsSection() {
   return (
-    <section className="relative overflow-hidden border-b border-white/[0.08] bg-[#05090b] px-[5%] py-16 font-['Manrope'] lg:py-24">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(34,196,197,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(34,196,197,0.025)_1px,transparent_1px)] bg-[size:52px_52px]" />
-
+    <section className="relative overflow-hidden border-b border-white/[0.08] bg-transparent px-[5%] py-16 font-['Manrope'] lg:py-24">
       <div className="relative mx-auto w-full max-w-[1728px]">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-[8%]">
           <div>

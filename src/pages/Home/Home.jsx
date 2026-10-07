@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <>
       <Hero data={heroData} />
-      <section className="about section bg-black py-[120px] max-[900px]:pt-20" id="about">
+      <section className="about section bg-black bg-[linear-gradient(rgba(34,196,197,0.022)_1px,transparent_1px),linear-gradient(90deg,rgba(34,196,197,0.022)_1px,transparent_1px)] bg-[size:64px_64px] py-[120px] max-[900px]:pt-20" id="about">
         <div className="mx-auto w-[90%]">
           <FeatureHighlightSection variant="about" />
           <ShowcaseSection />

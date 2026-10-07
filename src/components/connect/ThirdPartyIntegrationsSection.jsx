@@ -30,8 +30,9 @@ const integrations = [
 
 export default function ThirdPartyIntegrationsSection() {
   return (
-    <section className="border-y border-white/[0.08] bg-[#161616] px-[3%] py-10 font-['Manrope'] lg:py-12">
-      <div className="mx-auto w-full max-w-[1728px]">
+    <section className="relative overflow-hidden border-y border-white/[0.08] bg-[#161616] px-[3%] py-10 font-['Manrope'] lg:py-12">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(34,196,197,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(34,196,197,0.018)_1px,transparent_1px)] bg-[size:58px_58px]" />
+      <div className="relative mx-auto w-full max-w-[1728px]">
         <div className="grid items-end gap-6 pb-5 md:grid-cols-[1.25fr_0.9fr] lg:gap-10">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#22c4c5]"></p>

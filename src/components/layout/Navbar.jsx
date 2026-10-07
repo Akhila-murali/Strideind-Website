@@ -14,8 +14,8 @@ const products = [
       { id: "ai-cam", name: "FutuDrill AI CAM", path: "/products/futudrill/ai-cam" },
     ],
   },
-  { id: "ERP", name: "ERP", children: [] },
-   { id: "stride-pbx", name: "StridePBX", children: [] },
+   { id: "stride-pabx", name: "StridePABX", children: [] },
+    { id: "ERP", name: "ERP", children: [] },
 ];
 
 export default function Navbar() {
@@ -141,10 +141,6 @@ export default function Navbar() {
           </li>
 
           <li>
-            <button className="rounded-[3px] border-0 bg-transparent px-4 py-2 font-['Manrope'] text-[13px] font-medium tracking-[0.04em] text-white/60 transition-colors hover:bg-white/5 hover:text-white" onClick={() => goToSection("contact")}>Contact</button>
-          </li>
-
-          <li>
             <button className="ml-2 inline-block rounded-[3px] border-0 bg-[#1a9fa0] px-[22px] py-[9px] font-['Manrope'] text-[13px] font-semibold tracking-[0.06em] text-white" onClick={() => goToSection("contact-form")}>Get in Touch</button>
           </li>
 
@@ -160,7 +156,7 @@ export default function Navbar() {
           <span />
         </button>
 
-        <div className={`fixed top-0 z-[999] flex h-screen w-[280px] flex-col gap-1 border-l border-white/[0.06] bg-[#0e0e0e] px-6 pb-10 pt-[90px] transition-[right] duration-300 lg:hidden ${menuOpen ? "right-0" : "-right-full"} [&_button]:rounded-[3px] [&_button]:border-0 [&_button]:bg-transparent [&_button]:px-3 [&_button]:py-[10px] [&_button]:text-left [&_button]:font-['Manrope'] [&_button]:text-sm [&_button]:font-medium [&_button]:tracking-[0.03em] [&_button]:text-white/65 hover:[&_button]:bg-white/[0.04] hover:[&_button]:text-white`}>
+        <div className={`fixed top-0 z-[999] flex h-screen w-[280px] flex-col gap-1 border-l border-white/[0.06] bg-[#0e0e0e] px-6 pb-10 pt-[90px] transition-[right] duration-300 lg:hidden ${menuOpen ? "right-0" : "-right-full"} [&_button]:rounded-[3px] [&_button]:border-0 [&_button]:bg-transparent [&_button]:px-3 [&_button]:py-[10px] [&_button]:text-left [&_button]:font-['Manrope'] [&_button]:text-sm [&_button]:font-medium [&_button]:tracking-[0.03em] [&_button]:text-white/65`}>
           
           <button className="!absolute !right-5 !top-5 !w-auto !self-end !bg-transparent !p-2 !text-[22px] !text-white/80 hover:!bg-transparent hover:!text-[#1a9fa0]" onClick={() => setMenuOpen(false)}>
             ✕
@@ -194,7 +190,7 @@ export default function Navbar() {
               <div className={`ml-3 overflow-hidden border-l border-[#1a9fa0]/35 transition-[max-height] duration-300 ${futudrillOpen ? "max-h-[320px]" : "max-h-0"}`}>
                 {products[0].children.map((product) => (
                   <div
-                    className={`relative cursor-pointer px-4 py-2 font-['Manrope'] text-[12px] font-medium transition-colors hover:text-[#22c4c5] ${currentPath === product.path ? "!text-[#22c4c5] before:absolute before:left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full before:bg-[#22c4c5] before:content-['']" : "text-white/45"}`}
+                    className={`relative cursor-pointer px-4 py-2 font-['Manrope'] text-[12px] font-medium transition-colors ${currentPath === product.path ? "!text-[#22c4c5] before:absolute before:left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full before:bg-[#22c4c5] before:content-['']" : "text-white/45"}`}
                     key={product.id}
                     onClick={() => {
                       navigate(product.path);
@@ -209,7 +205,7 @@ export default function Navbar() {
               <div className="my-1 border-t border-white/[0.07]" />
               {products.filter((product) => product.children.length === 0).map((product) => (
                 <div
-                  className={`cursor-pointer border-b border-white/5 px-3 py-[10px] text-[13px] transition-colors hover:text-[#22c4c5] ${currentPath === `/product/${product.id}`.toLowerCase() ? "bg-[#1a9fa0]/10 text-[#22c4c5]" : "text-white/50"}`}
+                  className={`cursor-pointer border-b border-white/5 px-3 py-[10px] text-[13px] transition-colors ${currentPath === `/product/${product.id}`.toLowerCase() ? "bg-[#1a9fa0]/10 text-[#22c4c5]" : "text-white/50"}`}
                   key={product.id}
                   onClick={() => {
                     navigate(`/product/${product.id}`);
@@ -222,8 +218,6 @@ export default function Navbar() {
               ))}
             </div>
           </div>
-
-          <button onClick={() => goToSection("contact")}>Contact</button>
 
           <button className="!ml-2 !inline-block !bg-[#1a9fa0] !px-[22px] !py-[9px] !text-[13px] !font-semibold !tracking-[0.06em] !text-white hover:!bg-[#1a9fa0]" onClick={() => goToSection("contact-form")}>Get in Touch</button>
 

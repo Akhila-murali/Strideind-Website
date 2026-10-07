@@ -10,6 +10,7 @@ import Connect from "./pages/connect/Connect";
 import Control from "./pages/control/Control";
 import Insight from "./pages/insight/Insight";
 import AiCam from "./pages/ai-cam/AiCam";
+import StridePABX from "./pages/stride-pabx/StridePABX";
 import ComingSoon from "./components/common/ComingSoon";
 import NotFound from "./components/common/NotFound";
 
@@ -45,7 +46,10 @@ export default function App() {
           <Route path="/product/futudrill-insight" element={<Navigate to="/products/futudrill/insight" replace />} />
           <Route path="/product/futudrill-control" element={<Navigate to="/products/futudrill/control" replace />} />
           <Route path="/product/futudrill-ai-cam" element={<Navigate to="/products/futudrill/ai-cam" replace />} />
-          <Route path="/product/stride-pbx" element={<ComingSoon />} />
+          <Route path="/product/stride-pabx" element={<StridePABX />} />
+          <Route path="/products/stride-pabx" element={<Navigate to="/product/stride-pabx" replace />} />
+          <Route path="/product/stride-pbx" element={<Navigate to="/product/stride-pabx" replace />} />
+          <Route path="/products/stride-pbx" element={<Navigate to="/product/stride-pabx" replace />} />
           <Route path="/product/ERP" element={<ComingSoon />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

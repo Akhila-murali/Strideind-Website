@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from "react";
 import Hero from "../../components/common/Hero";
 import Overview from "../../components/common/Overview";
 import DrillersControlChairSection from "../../components/control/DrillersControlChairSection";
+import HmiScreenDesignSection from "../../components/control/HmiScreenDesignSection";
 import RigEquipmentControlsSection from "../../components/control/RigEquipmentControlsSection";
 import ControlCapabilitiesSection from "../../components/control/ControlCapabilitiesSection";
 import PowerControlRoomSection from "../../components/control/PowerControlRoomSection";
@@ -43,7 +44,7 @@ export default function Control() {
   return (
     <main className="product-detail min-h-screen bg-[#05090b] font-['Manrope'] text-white">
       <Hero data={heroData} />
-      <Overview variant="connect" data={{
+      <Overview variant="control" data={{
         eyebrow: "OVERVIEW",
         title: <>
           Purpose-Built Control.<br />
@@ -81,6 +82,7 @@ export default function Control() {
       <RigEquipmentControlsSection />
       <ControlCapabilitiesSection />
       <PowerControlRoomSection />
+      <HmiScreenDesignSection />
       <CustomControlsSection />
       <Footer />
     </main>

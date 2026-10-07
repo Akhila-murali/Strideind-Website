@@ -9,6 +9,8 @@ import {
   Server,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { motion, useReducedMotion } from "motion/react";
+import Reveal from "../common/Reveal";
 
 const architectureData = {
   eyebrow: "PLATFORM ARCHITECTURE",
@@ -35,6 +37,8 @@ const architectureData = {
 
 export default function CoreArchitecture() {
   const navigate = useNavigate();
+  const reduceMotion = useReducedMotion();
+  const lineMotion = reduceMotion ? false : { pathLength: 0, opacity: 0.25 };
 
   return (
     <section className="bg-transparent px-4 pb-0 pt-10 font-['Manrope'] sm:px-7 lg:px-8 lg:pb-0 lg:pt-12">
@@ -42,7 +46,7 @@ export default function CoreArchitecture() {
 
 
         <div className="grid items-center gap-12 xl:grid-cols-[0.7fr_1.3fr] xl:gap-[3%]">
-          <div className="max-w-[560px]">
+          <Reveal className="max-w-[560px]" direction="left">
             <p className="mb-4 text-[12px] font-semibold tracking-[0.12em] text-[#12bdc4]">{architectureData.eyebrow}</p>
             <h2 className="m-0 text-[clamp(36px,5vw,56px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-white">
               {architectureData.title}
@@ -50,8 +54,9 @@ export default function CoreArchitecture() {
             <p className="mt-6 max-w-[540px] text-[13px] font-light leading-[1.85] text-white/50 sm:text-[15px]">
               {architectureData.description}
             </p>
-          </div>
+          </Reveal>
 
+          <Reveal direction="right" delay={0.08}>
           <div>
             <div className="relative hidden overflow-hidden rounded-[24px] border border-[#0b3035] bg-[linear-gradient(180deg,#031114_0%,#020b0d_100%)] px-3 pb-5 pt-4 shadow-[inset_0_-2px_0_rgba(255,255,255,0.08),0_12px_28px_rgba(0,0,0,0.45)] max-[480px]:block">
               <div className="pointer-events-none absolute bottom-8 left-1/2 top-12 w-px -translate-x-1/2 bg-[#12dbe1]/65 shadow-[0_0_8px_#12dbe1]" />
@@ -94,13 +99,24 @@ export default function CoreArchitecture() {
             <div className="relative block aspect-[1.9/1] w-full max-[480px]:hidden sm:aspect-[2.2/1] md:aspect-[2.72/1]">
               <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 h-full w-full" viewBox="0 0 1000 368" preserveAspectRatio="none">
                 <g fill="none" stroke="#0ed6dd" strokeWidth="2">
-                  <path d="M270 64 H290 Q320 64 320 94 V130 Q320 158 370 158" />
-                  <path d="M270 186 H370" />
-                  <path d="M270 307 H290 Q320 307 320 277 V238 Q320 210 370 210" />
-                  <path d="M600 158 H610 Q635 158 635 128 V57 Q635 37 690 37" />
-                  <path d="M600 175 H625 Q660 175 660 151 Q660 131 690 131" />
-                  <path d="M600 193 H625 Q660 193 660 205 Q660 225 690 225" />
-                  <path d="M600 210 H610 Q635 210 635 299 Q635 319 690 319" />
+                  {[
+                    "M270 64 H290 Q320 64 320 94 V130 Q320 158 370 158",
+                    "M270 186 H370",
+                    "M270 307 H290 Q320 307 320 277 V238 Q320 210 370 210",
+                    "M600 158 H610 Q635 158 635 128 V57 Q635 37 690 37",
+                    "M600 175 H625 Q660 175 660 151 Q660 131 690 131",
+                    "M600 193 H625 Q660 193 660 205 Q660 225 690 225",
+                    "M600 210 H610 Q635 210 635 299 Q635 319 690 319",
+                  ].map((path, index) => (
+                    <motion.path
+                      key={path}
+                      d={path}
+                      initial={lineMotion}
+                      whileInView={{ pathLength: 1, opacity: 1 }}
+                      viewport={{ once: false, amount: 0.4 }}
+                      transition={{ duration: 0.7, delay: 0.22 + index * 0.06, ease: "easeOut" }}
+                    />
+                  ))}
                 </g>
               </svg>
 
@@ -148,6 +164,7 @@ export default function CoreArchitecture() {
               })}
             </div>
           </div>
+          </Reveal>
         </div>
       </div>
     </section>

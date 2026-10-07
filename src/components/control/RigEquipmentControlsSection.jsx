@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { ArrowRight, Gauge, Image, RadioTower, Waypoints } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 const controls = [
   {
     id: "tds",
     number: "01",
     shortTitle: "TDS Control",
-    mobileTitle: "TDS",
     title: "Top Drive System (TDS) Control",
     icon: Gauge,
     description:
@@ -25,7 +25,6 @@ const controls = [
     id: "catwalk",
     number: "02",
     shortTitle: "Catwalk Control",
-    mobileTitle: "Catwalk",
     title: "Catwalk Control",
     icon: Waypoints,
     description:
@@ -44,7 +43,6 @@ const controls = [
     id: "ir",
     number: "03",
     shortTitle: "IR Controls",
-    mobileTitle: "IR",
     title: "IR Controls",
     icon: RadioTower,
     description:
@@ -64,6 +62,7 @@ const controls = [
 export default function RigEquipmentControlsSection() {
   const [activeId, setActiveId] = useState("tds");
   const activeControl = controls.find((control) => control.id === activeId);
+  const reduceMotion = useReducedMotion();
 
   return (
     <section className="border-y border-white/[0.08] bg-[#03080a] px-[5%] py-16 font-['Manrope'] lg:py-20">
@@ -75,11 +74,17 @@ export default function RigEquipmentControlsSection() {
             maskImage: "linear-gradient(to right, transparent 0%, black 24%, black 100%)",
           }}
         >
+          <AnimatePresence mode="wait" initial={false}>
           {activeControl.image ? (
-            <img
+            <motion.img
+              key={activeControl.id}
               src={activeControl.image}
               alt={activeControl.imageAlt}
               className="h-full w-full object-cover object-center"
+              initial={reduceMotion ? false : { opacity: 0, scale: 1.015 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
             />
           ) : (
             <div className="grid h-full w-full place-items-center bg-[linear-gradient(rgba(34,196,197,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(34,196,197,0.035)_1px,transparent_1px)] bg-[size:40px_40px]">
@@ -91,6 +96,7 @@ export default function RigEquipmentControlsSection() {
               </div>
             </div>
           )}
+          </AnimatePresence>
         </div>
 
         <div className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(90deg,#061014_0%,#061014_34%,rgba(6,16,20,0.96)_43%,rgba(6,16,20,0.55)_54%,rgba(6,16,20,0.14)_66%,transparent_78%)] lg:block" />
@@ -111,7 +117,7 @@ export default function RigEquipmentControlsSection() {
             </div>
 
             <div className="mt-9 grid w-full grid-cols-3 overflow-hidden border border-[#24535a] bg-[#061014]/90 lg:absolute lg:bottom-10 lg:left-[4%] lg:block lg:w-[20%] lg:max-w-none">
-              {controls.map(({ id, shortTitle, mobileTitle, icon: Icon }) => {
+              {controls.map(({ id, shortTitle, icon: Icon }) => {
                 const isActive = id === activeId;
 
                 return (
@@ -126,10 +132,7 @@ export default function RigEquipmentControlsSection() {
                     }`}
                   >
                     <Icon aria-hidden="true" className={`hidden h-5 w-5 shrink-0 sm:block ${isActive ? "text-[#22c4c5]" : "text-white/35"}`} strokeWidth={1.6} />
-                    <span className="min-w-0 text-[11px] font-bold sm:text-[12px] lg:flex-1 lg:text-[14px]">
-                      <span className="lg:hidden">{mobileTitle}</span>
-                      <span className="hidden lg:inline">{shortTitle}</span>
-                    </span>
+                    <span className="min-w-0 text-[10px] font-bold leading-tight sm:text-[12px] lg:flex-1 lg:text-[14px]">{shortTitle}</span>
                     <span className={`hidden h-6 w-6 place-items-center rounded-full border lg:grid ${isActive ? "border-[#22c4c5] text-[#22c4c5]" : "border-white/15 text-white/30"}`}>
                       <ArrowRight aria-hidden="true" className="h-3 w-3" strokeWidth={1.7} />
                     </span>
@@ -139,7 +142,15 @@ export default function RigEquipmentControlsSection() {
             </div>
           </div>
 
-          <div className="mt-8 w-full border border-[#2a5960]/65 bg-[linear-gradient(90deg,rgba(6,18,22,0.97)_0%,rgba(6,18,22,0.9)_60%,rgba(6,18,22,0.58)_100%)] p-6 sm:p-7 lg:absolute lg:bottom-0 lg:left-[25%] lg:mt-0 lg:w-[53%] lg:max-w-none">
+          <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+              key={activeControl.id}
+              initial={reduceMotion ? false : { opacity: 0, x: 12 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -8 }}
+              transition={{ duration: 0.24, ease: "easeOut" }}
+              className="mt-8 w-full border border-[#2a5960]/65 bg-[linear-gradient(90deg,rgba(6,18,22,0.97)_0%,rgba(6,18,22,0.9)_60%,rgba(6,18,22,0.58)_100%)] p-6 sm:p-7 lg:absolute lg:bottom-0 lg:left-[25%] lg:mt-0 lg:w-[53%] lg:max-w-none"
+          >
               <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#22c4c5]">
                 {activeControl.number} / 03
               </p>
@@ -159,7 +170,8 @@ export default function RigEquipmentControlsSection() {
                   </div>
                 ))}
               </div>
-          </div>
+          </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>

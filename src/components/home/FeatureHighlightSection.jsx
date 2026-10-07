@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Reveal from "../common/Reveal";
 
 const sections = {
   about: {
@@ -48,7 +49,7 @@ export default function FeatureHighlightSection({ variant }) {
     <div className={`${data.layoutClassName} ${isAbout ? "mb-[100px] grid grid-cols-2 items-start gap-20 max-[900px]:grid-cols-1" : ""} ${isProduct ? "mb-20 flex items-center gap-[60px] max-[991px]:mb-0 max-[991px]:flex-col max-[991px]:gap-10" : ""}`}>
       
       {/* Content */}
-      <div className={`${data.contentClassName} ${isAbout ? "max-w-[600px]" : ""} ${isProduct ? "flex-1" : ""}`}>
+      <Reveal className={`${data.contentClassName} ${isAbout ? "max-w-[600px]" : ""} ${isProduct ? "flex-1" : ""}`} direction="left" disabled={isProduct}>
         <div className={`section-label ${(isAbout || isProduct) ? "mb-4 text-xs uppercase tracking-[0.12em] text-[#1a9fa0]" : ""}`}>
           {data.label}
         </div>
@@ -86,10 +87,10 @@ export default function FeatureHighlightSection({ variant }) {
             {data.action.label}
           </a>
         )}
-      </div>
+      </Reveal>
 
       {/* Image */}
-      <div className={`${data.mediaClassName} ${isProduct ? "relative flex-1" : ""}`}>
+      <Reveal className={`${data.mediaClassName} ${isProduct ? "relative flex-1" : ""}`} direction="right" delay={0.08} variant="image" disabled={isProduct}>
         <div className={`${data.imageWrapClassName} ${isAbout ? "relative overflow-hidden rounded-xl" : ""} ${isProduct ? "relative overflow-hidden rounded-xl border border-white/[0.08] shadow-[0_20px_40px_rgba(0,0,0,0.5)]" : ""}`}>
           <img
             src={data.image}
@@ -109,7 +110,7 @@ export default function FeatureHighlightSection({ variant }) {
             </div>
           )}
         </div>
-      </div>
+      </Reveal>
 
     </div>
   );

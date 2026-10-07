@@ -1,9 +1,11 @@
 import React from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import { useNavigate } from "react-router-dom";
+import { motion, useReducedMotion } from "motion/react";
 
 export default function Hero({ data = {} }) {
   const navigate = useNavigate();
+  const reduceMotion = useReducedMotion();
   const images = (data.images || []).map((url) => ({ url }));
   const descriptions = data.descriptions || [];
   const stats = data.stats || [];
@@ -54,7 +56,12 @@ export default function Hero({ data = {} }) {
         <div className="pointer-events-none absolute inset-0 border-y border-[#0b7180]/45 bg-[linear-gradient(110deg,rgba(3,20,25,0.78),rgba(3,11,15,0.4))]" />
       )}
 
-      <div className={`hero-video animate-[fadeIn_1s_ease] overflow-hidden after:hidden ${mediaLayout}`}>
+      <motion.div
+        className={`hero-video overflow-hidden after:hidden ${mediaLayout}`}
+        initial={reduceMotion ? false : { opacity: 0.4, scale: 1.07 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
+      >
         {data.useSlider && images.length > 0 ? (
           <SimpleImageSlider
             width="100%"
@@ -81,9 +88,14 @@ export default function Hero({ data = {} }) {
         ) : null}
 
         <div className={`pointer-events-none absolute inset-0 z-[1] ${mediaOverlay}`} />
-      </div>
+      </motion.div>
 
-      <div className={`hero-content relative z-[2] ${contentLayout}`}>
+      <motion.div
+        className={`hero-content relative z-[2] ${contentLayout}`}
+        initial={reduceMotion ? false : { opacity: 0, x: -42, filter: "blur(8px)" }}
+        animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+      >
         {data.badge && (
           <div className="hero-badge mb-8 inline-flex items-center gap-2 rounded-sm border border-[#1a9fa0]/30 bg-white/[0.08] px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-[#22b8b9]">
             <span className="h-1.5 w-1.5 animate-[pulse_2s_infinite] rounded-full bg-[#1a9fa0]" />
@@ -155,7 +167,7 @@ export default function Hero({ data = {} }) {
             ))}
           </div>
         )}
-      </div>
+      </motion.div>
 
       <div aria-hidden="true" className="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2">
         <div className="scroll-line" />

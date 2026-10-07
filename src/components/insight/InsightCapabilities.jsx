@@ -1,59 +1,80 @@
 ﻿import React from "react";
-import { BarChart3, CheckCircle2, FileText, LayoutDashboard } from "lucide-react";
+import { CheckCircle2, Gauge, Activity, Clock3 } from "lucide-react";
+
+import Reveal from "../common/Reveal";
 
 const insightCapabilities = [
   {
-    eyebrow: "ADVANCED ANALYTICS",
-    title: <>Discover What<br />Drives Performance.</>,
+    eyebrow: "WELL CONTEXT",
+    title: (
+      <>
+        Understand Every Well
+        <br />
+        in Context.
+      </>
+    ),
     description:
-      "Analyze drilling parameters, equipment health, and operational trends to identify opportunities and mitigate risks early.",
-    icon: BarChart3,
+      "Bring well details, rig information, operational state, and associated drilling data together so teams can clearly understand what is happening at each well.",
+    icon: Gauge,
     points: [
-      "Real-time & historical data analysis",
-      "Performance benchmarking",
-      "Anomaly detection & alerts",
+      "Well and rig context",
+      "Current operational activity",
+      "Historical operation records",
     ],
   },
   {
-    eyebrow: "INTERACTIVE DASHBOARDS",
-    title: <>A Clear View of<br />Your Operations.</>,
+    eyebrow: "DEPTH & PERFORMANCE",
+    title: (
+      <>
+        See How Performance
+        <br />
+        Changes With Depth.
+      </>
+    ),
     description:
-      "Get a unified, real-time view of your fleet and operations with customizable dashboards built for every role.",
-    icon: LayoutDashboard,
+      "Relate drilling readings and operational behaviour to depth progression, helping teams understand how performance changes through different sections of the hole.",
+    icon: Activity,
     points: [
-      "Customizable dashboard views",
-      "Fleet and multi-well monitoring",
-      "Role-based access and views",
+      "Depth-based parameter tracking",
+      "Performance across drilling intervals",
+      "Compare behaviour at different depths",
     ],
   },
   {
-    eyebrow: "AUTOMATED REPORTING",
-    title: <>Turn Insights<br />Into Action.</>,
+    eyebrow: "OPERATION TIMELINE",
+    title: (
+      <>
+        Follow the Operation
+        <br />
+        as It Happens.
+      </>
+    ),
     description:
-      "Generate detailed reports and automate data delivery to keep your teams aligned and informed.",
-    icon: FileText,
+      "Track drilling activities such as drilling, connections, tripping, and other operational events in sequence to provide clearer context around performance changes.",
+    icon: Clock3,
     points: [
-      "Standard and custom report templates",
-      "Automated report generation",
-      "Export and API integration",
+      "Activity and connection events",
+      "Operational sequence history",
+      "Time-based event correlation",
     ],
   },
 ];
 
 export default function InsightCapabilities() {
   return (
-    <section className="relative overflow-hidden border border-white/[0.08] bg-[#05090b] px-[3%] transition-[border-color,box-shadow] duration-300 hover:border-[#22c4c5]/80 hover:shadow-[inset_0_0_28px_rgba(34,196,197,0.08),0_0_18px_rgba(34,196,197,0.14)] py-14 font-['Manrope'] lg:py-[72px]">
+    <section className="relative overflow-hidden border-y border-white/[0.08] bg-[#05090b] px-[5%] py-14 font-['Manrope'] lg:py-[72px]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#19aeb2]/45 to-transparent" />
       <div className="pointer-events-none absolute bottom-0 left-1/2 h-40 w-3/4 -translate-x-1/2 bg-[radial-gradient(ellipse,rgba(25,174,178,0.08),transparent_68%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(34,196,197,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(34,196,197,0.02)_1px,transparent_1px)] bg-[size:58px_58px]" />
 
-      <div className="relative mx-auto grid w-full max-w-[1920px] gap-0 md:grid-cols-3">
-        <div aria-hidden="true" className="pointer-events-none absolute bottom-0 left-1/3 top-0 z-10 hidden w-px bg-[#1b3d43] md:block" />
-        <div aria-hidden="true" className="pointer-events-none absolute bottom-0 left-2/3 top-0 z-10 hidden w-px bg-[#1b3d43] md:block" />
+      <div className="relative mx-auto grid w-full max-w-[1728px] gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-0">
+        <div aria-hidden="true" className="pointer-events-none absolute bottom-0 left-1/3 top-0 z-10 hidden w-px bg-[#1b3d43] xl:block" />
+        <div aria-hidden="true" className="pointer-events-none absolute bottom-0 left-2/3 top-0 z-10 hidden w-px bg-[#1b3d43] xl:block" />
 
         {insightCapabilities.map(({ eyebrow, title, description, icon: Icon, points }, index) => (
+          <Reveal key={eyebrow} delay={index * 0.1} className={index === 2 ? "md:col-span-2 xl:col-span-1" : ""}>
           <article
-            key={eyebrow}
-            className={`relative px-0 py-9 first:pt-0 last:pb-0 md:px-8 md:py-0 lg:px-12 ${index > 0 ? "border-t border-[#1b3d43] md:border-t-0" : ""}`}
+            className="relative h-full border border-[#1b3d43]/70 bg-[#071013]/65 px-6 py-8 sm:px-8 sm:py-10 xl:border-0 xl:bg-transparent xl:px-10 xl:py-0"
           >
             <div className="flex items-center gap-3 text-[#22c4c5]">
               <Icon aria-hidden="true" strokeWidth={1.7} className="h-6 w-6 shrink-0" />
@@ -63,7 +84,7 @@ export default function InsightCapabilities() {
             <h2 className="mt-5 text-[clamp(26px,2.4vw,40px)] font-bold leading-[1.02] tracking-[-0.025em] text-white">
               {title}
             </h2>
-            <p className="mt-5 max-w-[440px] text-base font-light leading-[1.8] text-white/55">
+            <p className="mt-5 text-[15px] font-light leading-[1.8] text-white/55 sm:text-base xl:max-w-[440px]">
               {description}
             </p>
 
@@ -76,6 +97,7 @@ export default function InsightCapabilities() {
               ))}
             </ul>
           </article>
+          </Reveal>
         ))}
       </div>
     </section>

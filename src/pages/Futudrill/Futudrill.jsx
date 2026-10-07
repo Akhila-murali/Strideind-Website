@@ -5,6 +5,7 @@ import Hero from "../../components/common/Hero";
 import ProvenOperationsSection from "../../components/futudrill/ProvenOperationsSection";
 import FutudrillModuleSection from "../../components/futudrill/FutudrillModuleSection";
 import HorizontalScroll from "../../components/common/HorizontalScroll";
+import Skeleton from "../../components/common/Skeleton";
 import Footer from "../../components/layout/Footer";
 
 const heroData = {
@@ -53,47 +54,9 @@ export const solutions = [
     desc: "Real-time monitoring solutions for critical equipment, enabling predictive maintenance, performance optimization, and improved reliability. Reduce unplanned downtime before it impacts operations.",
     img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=600",
   },
-  {
-    num: "06", badge: "STRIDEIND INNOVATIONS", title: "CCTV\nSYSTEMS",
-    desc: "Explosion-proof and IP-based CCTV systems for drilling rigs, enabling real-time monitoring, recording, and remote access. Ruggedized for hazardous area classification and 24/7 operation.",
-    img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=600",
-  },
-  {
-    num: "07", badge: "SURVEILLANCE", title: "COLLISION\nAVOIDANCE SYSTEM",
-    desc: "Re-programmable collision avoidance systems designed for safe operation across various rig types and operational environments. Prevent incidents with configurable detection zones and instant alerts.",
-    img: "https://images.unsplash.com/photo-1565043666747-69f6646db940?q=80&w=600",
-  },
-  {
-    num: "08", badge: "COMMUNICATION", title: "INTERCOM &\nTALKBACK",
-    desc: "Industrial intercom and talkback systems with satellite connectivity and comprehensive IT & networking solutions for seamless coordination across every level of rig operations.",
-    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600",
-  },
 ];
 
 /* ── SKELETON LOADER ── */
-function FutudrillSkeleton() {
-  return (
-  <div className="min-h-screen overflow-x-hidden bg-[#0a0a0a] text-white">
-    <nav className="relative z-10 flex items-center justify-between border-b border-white/[0.08] bg-[#0a0a0a] px-12 py-5 max-lg:px-8 max-sm:px-5">
-      <div className="h-6 w-[140px] animate-skeleton-shimmer rounded-[2px] bg-[linear-gradient(90deg,#161616_25%,#2a2a2a_50%,#161616_75%)] bg-[length:200%_100%]" />
-    </nav>
-    <div className="relative flex min-h-[calc(100vh-61px)] w-full items-center overflow-hidden bg-[#0a0a0a]">
-      <div className="relative z-[2] w-full max-w-[680px] px-16 py-20 max-md:px-5 max-md:py-12">
-        <div className="mb-4 h-8 w-[180px] animate-skeleton-shimmer rounded-[2px] bg-[linear-gradient(90deg,#161616_25%,#2a2a2a_50%,#161616_75%)] bg-[length:200%_100%]" />
-        <div className="mb-2.5 h-3.5 w-[140px] animate-skeleton-shimmer rounded-[2px] bg-[linear-gradient(90deg,#161616_25%,#2a2a2a_50%,#161616_75%)] bg-[length:200%_100%]" />
-        <div className="mb-6 h-[70px] w-3/5 animate-skeleton-shimmer rounded-[2px] bg-[linear-gradient(90deg,#161616_25%,#2a2a2a_50%,#161616_75%)] bg-[length:200%_100%]" />
-        <div className="mb-2.5 h-4 w-4/5 animate-skeleton-shimmer rounded-[2px] bg-[linear-gradient(90deg,#161616_25%,#2a2a2a_50%,#161616_75%)] bg-[length:200%_100%]" />
-        <div className="mb-9 h-4 w-[70%] animate-skeleton-shimmer rounded-[2px] bg-[linear-gradient(90deg,#161616_25%,#2a2a2a_50%,#161616_75%)] bg-[length:200%_100%]" />
-        <div className="flex gap-3.5">
-          <div className="h-[50px] w-40 animate-skeleton-shimmer rounded-[2px] bg-[linear-gradient(90deg,#161616_25%,#2a2a2a_50%,#161616_75%)] bg-[length:200%_100%]" />
-          <div className="h-[50px] w-40 animate-skeleton-shimmer rounded-[2px] bg-[linear-gradient(90deg,#161616_25%,#2a2a2a_50%,#161616_75%)] bg-[length:200%_100%]" />
-        </div>
-      </div>
-    </div>
-  </div>
-  );
-}
-
 /* ── SOLUTION DETAIL PAGES ── */
 export default function Futudrill() {
   const navigate = useNavigate();
@@ -133,7 +96,7 @@ export default function Futudrill() {
     };
   }, [selectedSolution]);
 
-  if (isPageLoading) return <FutudrillSkeleton />;
+  if (isPageLoading) return <Skeleton />;
 
   return (
       <div className="product-detail">
@@ -148,6 +111,7 @@ export default function Futudrill() {
         <FutudrillModuleSection variant="connect" />
         <FutudrillModuleSection variant="insight" />
         <FutudrillModuleSection variant="control" />
+        <FutudrillModuleSection variant="ai-cam" />
 
         {/* ══════════════════════════════════════
             INTEGRATED SOLUTIONS — HORIZONTAL SCROLL
@@ -238,12 +202,6 @@ export default function Futudrill() {
                   <p className="mt-4 text-sm font-light leading-6 text-white/55">
                     {selectedSolution.desc}
                   </p>
-
-                  <div className="mt-7 flex items-center gap-3 border-t border-white/10 pt-5 md:mt-auto">
-                    <span className="h-3 w-3 rounded-full bg-[#22c4c5] shadow-[0_0_14px_rgba(34,196,197,0.55)]" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">Status</span>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#22c4c5]">Coming Soon</span>
-                  </div>
                 </div>
 
                 <div className="relative order-1 h-[250px] overflow-hidden bg-[#0e1111] md:order-2 md:h-full md:min-h-0">
