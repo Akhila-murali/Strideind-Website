@@ -1,77 +1,59 @@
 import React from "react";
-import { Building2, Headphones, Laptop, PhoneForwarded } from "lucide-react";
-import Reveal from "../common/Reveal";
+import { Megaphone, Network, Phone, PhoneCall, Radio, Wifi } from "lucide-react";
+import ScrollSection from "../common/ScrollSection";
 
 const capabilities = [
   {
-    icon: PhoneForwarded,
-    number: "01",
-    title: "Connected Business Calling",
+    icon: Megaphone,
+    title: "Public Address (PA) System",
     description:
-      "Make and receive business calls through a shared communication environment built around the team's daily workflow.",
+      "Provides a centralized voice announcement system for broadcasting operational instructions, general announcements, and emergency alerts across the drilling site. Supports communication to designated zones or wider rig areas, helping ensure important information reaches personnel when needed.",
+    features: ["Operational announcements", "Zone-based communication", "Emergency alerts"],
   },
   {
-    icon: Headphones,
-    number: "02",
-    title: "Desk Phone Access",
+    icon: Phone,
+    title: "Wired Communication",
     description:
-      "Keep familiar desk-phone communication available for employees, departments, and fixed work locations.",
+      "Delivers stable and consistent voice connectivity through dedicated wired communication networks. Ideal for fixed workstations, control rooms, and critical rig locations where dependable communication is essential for continuous drilling operations.",
+    features: ["Dedicated wired network", "Fixed workstation access", "Control-room connectivity"],
   },
   {
-    icon: Laptop,
-    number: "03",
-    title: "Desktop Calling",
+    icon: Radio,
+    title: "Talkback Communication System",
     description:
-      "Extend voice communication to supported desktop calling applications for greater device flexibility.",
+      "Enables instant, two-way voice communication between the driller's cabin, rig floor, control rooms, and other critical operational areas. Supports clear communication during drilling activities, equipment handling, and routine operations.",
+    features: ["Instant two-way voice", "Critical-area communication", "Operational coordination"],
   },
   {
-    icon: Building2,
-    number: "04",
-    title: "Internal Extension Network",
+    icon: Wifi,
+    title: "Wireless Communication",
     description:
-      "Organize team communication through connected extensions that make colleagues and departments easier to reach.",
+      "Enables flexible voice connectivity for personnel working across different rig locations without being restricted to fixed communication points. Supports mobility, team coordination, and communication between field personnel and operational control areas.",
+    features: ["Mobile voice access", "Field-team coordination", "Field-to-control communication"],
+  },
+  {
+    icon: PhoneCall,
+    title: "SIP Corporate Telephony",
+    description:
+      "Integrates SIP-based IP desk phones, desktop softphones, and corporate telephone extensions into the rig communication infrastructure. Supports internal extension calling and, when connected to external telephone services, communication with site offices and corporate teams.",
+    features: ["IP phones and softphones", "Internal extension calling", "External service connectivity"],
+  },
+  {
+    icon: Network,
+    title: "Centralized Communication Integration",
+    description:
+      "Brings Talkback, Public Address, wired and wireless communication, and SIP telephony together within a unified communication infrastructure. Simplifies communication management and supports coordinated voice communication across drilling operations.",
+    features: ["Unified voice infrastructure", "Centralized management", "Connected communication systems"],
   },
 ];
 
 export default function StridePabxCapabilitiesSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0a0a0a] px-[5%] py-16 font-['Manrope'] lg:py-24">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(34,196,197,0.07),transparent_32%)]" />
-
-      <div className="relative mx-auto w-full max-w-[1728px]">
-        <Reveal>
-          <div className="grid gap-7 lg:grid-cols-[1fr_0.8fr] lg:items-end lg:gap-16">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#22c4c5]">
-                Communication Capabilities
-              </p>
-              <h2 className="mt-5 text-[clamp(36px,5vw,56px)] font-extrabold leading-[1.08] tracking-[-0.03em] text-white">
-                Everyday Communication.<br />
-                <span className="text-[#1a9fa0]">One Connected System.</span>
-              </h2>
-            </div>
-
-            <p className="max-w-[620px] border-l border-white/10 pl-5 text-[14px] font-light leading-[1.8] text-white/55 sm:text-[16px] lg:justify-self-end">
-              StridePABX creates a consistent calling experience across the
-              devices and extensions teams use throughout the working day,
-              helping communication remain organized, accessible, and easier
-              to manage.
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="mt-12 grid border-l border-t border-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
-          {capabilities.map(({ icon: Icon, number, title, description }, index) => (
-            <Reveal key={number} delay={index * 0.08}>
-              <article className="min-h-[245px] border-b border-r border-white/[0.08] bg-[#0d1214] p-7 transition-colors duration-300 hover:bg-[#0f191c] sm:p-8">
-                <Icon aria-hidden="true" className="h-7 w-7 text-[#22c4c5]" strokeWidth={1.6} />
-                <h3 className="mt-10 text-[17px] font-bold leading-tight text-white">{title}</h3>
-                <p className="mt-4 text-[13px] font-light leading-[1.7] text-white/50">{description}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
+    <ScrollSection
+      label="FutuDrill Voice Capabilities"
+      heading={<>Every Voice Channel.<br /><span className="text-[#1a9fa0]">One Integrated Infrastructure.</span></>}
+      description="Support announcements, operational coordination, mobile voice access, and corporate telephony through communication systems designed for critical drilling environments."
+      capabilities={capabilities}
+    />
   );
 }

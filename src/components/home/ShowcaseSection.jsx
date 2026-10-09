@@ -46,7 +46,7 @@ export default function ShowcaseSection() {
             <div className="pillar-overlay absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.4),rgba(10,10,10,0.9))]" />
             <div className="pillar-content absolute bottom-0 z-[2] translate-y-5 p-6 transition-transform duration-[400ms] ease-in-out group-hover:translate-y-0">
               <h4 className="pillar-title text-lg font-bold text-white">{item.title}</h4>
-              <p className="pillar-desc mt-2 -translate-x-5 text-[13px] text-white/50 opacity-0 transition-all duration-[400ms] ease-in-out group-hover:translate-x-0 group-hover:opacity-100">{item.desc}</p>
+              <p className="site-card-description pillar-desc mt-2 -translate-x-5 opacity-0 transition-all duration-[400ms] ease-in-out group-hover:translate-x-0 group-hover:opacity-100">{item.desc}</p>
             </div>
           </div>
           </Reveal>

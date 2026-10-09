@@ -5,29 +5,27 @@ import GlobalConnectivitySection from "../../components/connect/GlobalConnectivi
 import UnifiedIOSection from "../../components/connect/UnifiedIOSection";
 import ThirdPartyIntegrationsSection from "../../components/connect/ThirdPartyIntegrationsSection";
 import Footer from "../../components/layout/Footer";
-import { Database, MonitorCheck, ShieldCheck } from "lucide-react";
+import { Cable, Database, Network } from "lucide-react";
 
 const heroData = {
-  badge: "FutuDrill Connect",
+  badge: "Industrial Connectivity",
   image:
     process.env.PUBLIC_URL +
     "/Futuristic%20Global%20Network%20Over%20Earth.png",
   imageAlt: "Connected global network over Earth",
   title: (
     <>
-      One Connection.
-      <br />
-      Multiple <span className="text-[#22c4c5]">Possibilities.</span>
+      Connecting Industrial Systems. <span className="text-[#22c4c5]">Simplifying Data Integration</span>
     </>
   ),
   descriptions: [
-    "FutuDrill Connect brings together site information, drilling parameters, and service data from field systems in a secure connected environment, enabling reliable data exchange between rig equipment, remote teams, and enterprise platforms wherever critical information is needed.",
+    "FutuDrill Connect is an industrial data connectivity platform designed to simplify communication between PLCs, controllers, and field devices. It enables teams to configure industrial connections, organize device information, transform raw register values into meaningful operational tags, and prepare structured data for downstream monitoring and drilling systems through configurable WITS Level 0 workflows.",
   ],
   stats: [
-    { value: "Secure", label: "Data Flow" },
-    { value: "Remote", label: "Connectivity" },
-    { value: "Unified", label: "Integration" },
-    { value: "Real-Time", label: "Access" },
+    { value: "PLC", label: "Connectivity" },
+    { value: "Modbus", label: "TCP Configuration" },
+    { value: "WITS", label: "Level 0 Data Exchange" },
+    { value: "Tags", label: "Data Mapping" },
   ],
 };
 
@@ -42,33 +40,33 @@ export default function Connect() {
       <Overview variant="connect" data={{
         eyebrow: "OVERVIEW",
         title: <>
-          Connected Operations.<br />
-          <span className="text-[#19aeb2]">Clearer Visibility.</span>
+          Industrial Connectivity.<br />
+          <span className="text-[#19aeb2]">Structured Data Integration.</span>
         </>,
         description:
-          "FutuDrill Connect provides a reliable communication layer between field equipment, operational systems, and remote teams. It brings data from multiple sources into one connected environment, helping teams maintain consistent access to operational information, improve coordination, and support faster response across drilling activities.",
+          "FutuDrill Connect simplifies industrial data communication by bringing PLC connections, device configuration, and operational tag management into one centralized platform. It enables industrial teams to configure Modbus TCP and serial communication interfaces, register field devices, and transform raw register values into meaningful data points with defined data types, scaling factors, and engineering units. With configurable WITS Level 0 workflows, the platform also supports mapping operational measurements to standardized WITS codes, preparing structured output, and managing serial data transmission for downstream drilling and monitoring systems.",
         image:
           process.env.PUBLIC_URL +
-          "/Connected%20Drilling%20Site%20at%20Dusk.png",
-        imageAlt: "Connected drilling site at dusk",
+          "/Field%20Automation%20at%20Sunset.png",
+        imageAlt: "Field automation equipment operating at a drilling site at sunset",
         capabilities: [
           {
+            icon: Cable,
+            title: "Industrial Communication",
+            description:
+              "Configure Modbus TCP connections and serial communication settings for supported PLCs and field devices.",
+          },
+          {
             icon: Database,
-            title: "Field Data Access",
+            title: "Device & Tag Management",
             description:
-              "Access drilling, site, and service information from connected field systems in real time.",
+              "Define register addresses and convert raw measurements into operational tags with units and scaling.",
           },
           {
-            icon: ShieldCheck,
-            title: "Secure System Integration",
+            icon: Network,
+            title: "WITS Level 0 Integration",
             description:
-              "Exchange data reliably between instruments, control systems, third-party platforms, and enterprise applications.",
-          },
-          {
-            icon: MonitorCheck,
-            title: "Remote Operational Support",
-            description:
-              "Enable remote teams to monitor activity, review information, and support field operations from anywhere.",
+              "Map source tags to WITS codes, configure output profiles, preview messages, and manage serial transmission.",
           },
         ],
       }} />

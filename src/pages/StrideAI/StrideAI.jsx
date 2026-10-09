@@ -132,7 +132,7 @@ export default function StrideAI() {
         <div className="chat-header flex items-center justify-between border-b border-white/[0.06] bg-[#1e1e1e] px-[18px] py-4">
           <div className="chat-header-left flex items-center gap-3">
             <div className="chat-avatar flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-[#1a9fa0]/40 bg-[#1a9fa0]/[0.12]">
-              <img className="h-auto w-6 brightness-0 invert sepia saturate-[3] hue-rotate-[155deg] brightness-[0.85]" src={process.env.PUBLIC_URL + "/logo.png"} alt="StrideAI" />
+              <img className="h-6 w-6 rounded-full object-contain" src={process.env.PUBLIC_URL + "/dimg.jpeg"} alt="StrideAI" />
             </div>
             <div>
               <div className="chat-name text-sm font-bold text-white">StrideAI</div>

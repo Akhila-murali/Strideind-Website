@@ -25,7 +25,7 @@ export default function ProvenOperationsSection() {
             <h2 className="mt-4 text-[clamp(36px,4vw,56px)] font-extrabold leading-[1.06] tracking-[-0.025em] text-white">
               Proven in Real<br /><span className="text-[#22c4c5]">Operations</span>
             </h2>
-            <p className="mt-6 max-w-[550px] text-[14px] font-light leading-[1.8] text-white/55 sm:text-[16px]">
+            <p className="site-section-description mt-6 max-w-[550px]">
    FutuDrill is an integrated digital drilling platform that brings monitoring, connectivity, analytics, automation, and operational intelligence into one connected environment. It helps drilling teams access critical data, connect field systems, monitor performance, improve coordination between field and office operations, and make faster, more informed decisions across the drilling lifecycle.
             </p>
           </Reveal>

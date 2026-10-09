@@ -111,7 +111,7 @@ export default function RigEquipmentControlsSection() {
                 <span className="lg:whitespace-nowrap">Control Solutions</span><br />
                 for <span className="text-[#22c4c5]">Key Rig Equipment.</span>
               </h2>
-              <p className="mt-4 max-w-[500px] text-[15px] font-light leading-[1.75] text-white/55 sm:text-[16px]">
+              <p className="site-section-description mt-4 max-w-[500px]">
                FutuDrill Control provides project-configured control solutions for TDS, catwalk, and IR equipment, developed around equipment interfaces, operator requirements, and rig layout.
               </p>
             </div>
@@ -149,7 +149,7 @@ export default function RigEquipmentControlsSection() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -8 }}
               transition={{ duration: 0.24, ease: "easeOut" }}
-              className="mt-8 w-full border border-[#2a5960]/65 bg-[linear-gradient(90deg,rgba(6,18,22,0.97)_0%,rgba(6,18,22,0.9)_60%,rgba(6,18,22,0.58)_100%)] p-6 sm:p-7 lg:absolute lg:bottom-0 lg:left-[25%] lg:mt-0 lg:w-[53%] lg:max-w-none"
+              className="mt-8 w-full border border-[#2a5960]/65 bg-[linear-gradient(90deg,rgba(6,18,22,0.97)_0%,rgba(6,18,22,0.9)_60%,rgba(6,18,22,0.58)_100%)] p-6 after:pointer-events-none after:absolute after:inset-y-0 after:left-full after:hidden after:w-24 after:bg-gradient-to-r after:from-[#061216]/60 after:to-transparent after:content-[''] sm:p-7 lg:absolute lg:bottom-0 lg:left-[25%] lg:mt-0 lg:block lg:w-[53%] lg:max-w-none lg:border-r-transparent lg:after:block"
           >
               <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#22c4c5]">
                 {activeControl.number} / 03
@@ -157,7 +157,7 @@ export default function RigEquipmentControlsSection() {
               <h3 className="mt-3 text-[clamp(22px,1.8vw,30px)] font-extrabold leading-[1.08] tracking-[-0.02em] text-white">
                 {activeControl.title}
               </h3>
-              <p className="mt-3 max-w-[680px] text-[13px] font-light leading-[1.65] text-white/60 sm:text-[14px]">
+              <p className="site-card-description mt-3 max-w-[680px]">
                 {activeControl.description}
               </p>
 
@@ -165,8 +165,8 @@ export default function RigEquipmentControlsSection() {
                 {activeControl.scope.map(([title, description], index) => (
                   <div key={title}>
                     <span className="text-[10px] font-semibold tracking-[0.12em] text-[#1a9fa0]">0{index + 1}</span>
-                    <p className="mt-2 text-[13px] font-bold text-white/90">{title}</p>
-                    <p className="mt-1.5 text-[11px] font-light leading-[1.5] text-white/45">{description}</p>
+                    <p className="mt-2 text-[14px] font-bold leading-[1.4] text-white/90">{title}</p>
+                    <p className="site-card-description mt-1.5">{description}</p>
                   </div>
                 ))}
               </div>

@@ -33,7 +33,7 @@ export default function CustomControlsSection() {
               <span className="text-[#22c4c5]">Built Around Your Requirements.</span>
             </h2>
           </div>
-          <p className="max-w-[760px] text-[14px] font-light leading-[1.8] text-white/55 sm:text-[16px]">
+          <p className="site-section-description max-w-[760px]">
             FutuDrill Control develops custom control solutions around the equipment, interfaces, and control requirements defined for each project.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function CustomControlsSection() {
                 </span>
               </div>
               <h3 className="mt-10 text-[20px] font-bold text-white">{title}</h3>
-              <p className="mt-4 max-w-[420px] text-[13px] font-light leading-[1.75] text-white/45 sm:text-[14px]">
+              <p className="site-card-description mt-4 max-w-[420px]">
                 {description}
               </p>
             </article>

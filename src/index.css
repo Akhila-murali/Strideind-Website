@@ -54,6 +54,28 @@ select {
   font-family: var(--font) !important;
 }
 
+/* Shared marketing typography: keep section and card copy consistent. */
+.site-section-description {
+  font-size: clamp(15px, 0.9vw, 16px);
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.site-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.site-card-description {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .hero-contact-button {
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
   border-style: solid !important;
@@ -264,5 +286,193 @@ select {
   0% { transform: scaleY(0); }
   75% { transform: scaleY(0); }
   100% { transform: scaleY(1); }
+}
+
+/* ERP maintenance workflow */
+.erp-workflow__node {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(26, 159, 160, 0.42);
+  border-radius: 9999px;
+  background: #071113;
+  color: #22c4c5;
+  font-size: 9px;
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(0.45);
+  box-shadow: 0 0 0 6px #050809;
+}
+
+.erp-workflow__track {
+  position: relative;
+  width: 1px;
+  min-height: 0;
+  flex: 1 1 0%;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.erp-workflow__line {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  transform: scaleY(0);
+  transform-origin: top;
+  background: linear-gradient(to bottom, #1a9fa0, #22c4c5);
+  box-shadow: 0 0 8px rgba(34, 196, 197, 0.55);
+}
+
+.erp-workflow__line-head {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 5px;
+  height: 22px;
+  border-radius: 9999px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  background: #baffff;
+  box-shadow: 0 0 8px #4ff7f3, 0 0 18px rgba(34, 196, 197, 0.95);
+}
+
+.erp-workflow__card {
+  opacity: 0;
+  transform: translateX(24px);
+}
+
+.erp-workflow__card::after {
+  position: absolute;
+  inset: 0 auto 0 -22%;
+  width: 18%;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+  transform: skewX(-16deg);
+  background: linear-gradient(to right, transparent, rgba(79, 247, 243, 0.1), transparent);
+}
+
+.erp-workflow.is-active .erp-workflow__node {
+  animation: erp-node-form 0.72s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.erp-workflow.is-active .erp-workflow__line {
+  animation: erp-line-grow 0.82s cubic-bezier(0.45, 0, 0.2, 1) forwards;
+}
+
+.erp-workflow.is-active .erp-workflow__line-head {
+  animation: erp-line-travel 0.82s cubic-bezier(0.45, 0, 0.2, 1) forwards;
+}
+
+.erp-workflow.is-active .erp-workflow__card {
+  animation: erp-card-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.erp-workflow.is-active .erp-workflow__card::after {
+  animation: erp-card-sweep 0.9s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: calc(var(--workflow-delay) + 0.12s);
+}
+
+.erp-workflow.is-active .erp-workflow__card-icon {
+  animation: erp-icon-activate 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--workflow-delay);
+}
+
+@keyframes erp-node-form {
+  0% {
+    opacity: 0;
+    transform: scale(0.45);
+    background: #071113;
+    box-shadow: 0 0 0 6px #050809, 0 0 0 0 rgba(34, 196, 197, 0);
+  }
+  58% {
+    opacity: 1;
+    transform: scale(1.35);
+    border-color: #d8ffff;
+    background: #4ff7f3;
+    color: #041012;
+    box-shadow: 0 0 0 6px #050809, 0 0 0 12px rgba(34, 196, 197, 0.08), 0 0 38px rgba(79, 247, 243, 0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.06);
+    border-color: #22c4c5;
+    background: #1a9fa0;
+    color: #041012;
+    box-shadow: 0 0 0 6px #050809, 0 0 18px rgba(34, 196, 197, 0.58);
+  }
+}
+
+@keyframes erp-line-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes erp-line-travel {
+  0% { top: 0; opacity: 0; }
+  12% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes erp-card-enter {
+  0% {
+    opacity: 0;
+    transform: translateX(24px);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+  }
+  58% {
+    opacity: 1;
+    border-color: rgba(34, 196, 197, 0.42);
+    box-shadow: inset 3px 0 0 #22c4c5, 0 0 24px rgba(26, 159, 160, 0.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 1px 0 0 rgba(34, 196, 197, 0.32);
+  }
+}
+
+@keyframes erp-card-sweep {
+  0% { left: -22%; opacity: 0; }
+  25% { opacity: 1; }
+  100% { left: 108%; opacity: 0; }
+}
+
+@keyframes erp-icon-activate {
+  0% { border-color: rgba(26, 159, 160, 0.25); box-shadow: none; }
+  55% { border-color: #22c4c5; box-shadow: 0 0 20px rgba(34, 196, 197, 0.3); }
+  100% { border-color: rgba(26, 159, 160, 0.45); box-shadow: 0 0 10px rgba(34, 196, 197, 0.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .erp-workflow__node,
+  .erp-workflow__line,
+  .erp-workflow__line-head,
+  .erp-workflow__card,
+  .erp-workflow__card::after,
+  .erp-workflow__card-icon {
+    animation: none !important;
+  }
+
+  .erp-workflow__node {
+    opacity: 1;
+    transform: scale(1);
+    background: #1a9fa0;
+    color: #041012;
+  }
+
+  .erp-workflow__line { transform: scaleY(1); }
+  .erp-workflow__line-head { display: none; }
+  .erp-workflow__card { opacity: 1; transform: none; }
 }
 

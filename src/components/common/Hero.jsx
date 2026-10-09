@@ -9,20 +9,10 @@ export default function Hero({ data = {} }) {
   const images = (data.images || []).map((url) => ({ url }));
   const descriptions = data.descriptions || [];
   const stats = data.stats || [];
-  const isInsightHero = data.variant === "insight";
-
-  const sectionLayout = isInsightHero
-    ? "pb-16 pt-[128px] md:items-center md:py-[120px]"
-    : "pb-20 pt-[160px] max-md:pb-16 max-md:pt-[108px]";
-  const mediaLayout = isInsightHero
-    ? "absolute inset-0 z-[1] rounded-none border-0 md:bottom-[7%] md:left-auto md:right-0 md:top-[14%] md:h-auto md:w-[48%] md:rounded-[12px] md:border md:border-[#0b7180]/70 lg:w-[52%]"
-    : "absolute inset-0 z-0 h-full w-full";
-  const contentLayout = isInsightHero
-    ? "ml-[5%] w-[90%] max-w-[620px] px-5 md:w-[47%] lg:w-[43%]"
-    : "ml-[5%] max-w-[680px] px-5 max-lg:max-w-[560px] max-md:ml-0 max-md:w-full";
-  const mediaOverlay = isInsightHero
-    ? "bg-[linear-gradient(to_right,rgba(3,10,13,0.9),rgba(3,10,13,0.66))] md:bg-[linear-gradient(to_right,rgba(3,13,17,0.35),transparent_35%)]"
-    : "bg-[linear-gradient(to_right,rgba(10,10,10,0.92)_0%,rgba(10,10,10,0.72)_40%,rgba(10,10,10,0.45)_100%)]";
+  const sectionLayout = "pb-20 pt-[160px] max-md:pb-16 max-md:pt-[108px]";
+  const mediaLayout = "absolute inset-0 z-0 h-full w-full";
+  const contentLayout = "ml-[5%] max-w-[680px] px-5 max-lg:max-w-[560px] max-md:ml-0 max-md:w-full";
+  const mediaOverlay = "bg-[linear-gradient(to_right,rgba(10,10,10,0.92)_0%,rgba(10,10,10,0.72)_40%,rgba(10,10,10,0.45)_100%)]";
 
   const primaryAction = {
     label: "Request Demo",
@@ -52,10 +42,6 @@ export default function Hero({ data = {} }) {
       <div className="hero-grid pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
       <div className="hero-gradient pointer-events-none absolute -left-[200px] -top-[200px] h-[700px] w-[700px] bg-[radial-gradient(circle,rgba(26,159,160,0.12)_0%,transparent_70%)]" />
 
-      {isInsightHero && (
-        <div className="pointer-events-none absolute inset-0 border-y border-[#0b7180]/45 bg-[linear-gradient(110deg,rgba(3,20,25,0.78),rgba(3,11,15,0.4))]" />
-      )}
-
       <motion.div
         className={`hero-video overflow-hidden after:hidden ${mediaLayout}`}
         initial={reduceMotion ? false : { opacity: 0.4, scale: 1.07 }}
@@ -74,15 +60,10 @@ export default function Hero({ data = {} }) {
           />
         ) : data.image ? (
           <picture className="block h-full w-full">
-            {isInsightHero && data.mobileImage && (
-              <source media="(max-width: 767px)" srcSet={data.mobileImage} />
-            )}
             <img
               src={data.image}
               alt={data.imageAlt || ""}
-              className={`h-full w-full object-cover ${
-                isInsightHero ? "object-center" : data.imagePosition || "object-center"
-              }`}
+              className={`h-full w-full object-cover ${data.imagePosition || "object-center"}`}
             />
           </picture>
         ) : null}
@@ -127,6 +108,12 @@ export default function Hero({ data = {} }) {
             {text}
           </p>
         ))}
+
+        {data.tagline && (
+          <p className="max-w-[590px] text-sm font-bold leading-[1.7] tracking-[0.04em] text-white/80">
+            {data.tagline}
+          </p>
+        )}
 
         {data.showActions !== false && (
           <div className="mb-12 mt-8 flex flex-wrap items-center gap-4">

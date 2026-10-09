@@ -49,7 +49,7 @@ export default function UnifiedIOSection() {
           <h2 className="mt-4 text-[clamp(38px,4.5vw,60px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-white">
             Unified I/O <span className="text-[#22c4c5]">Compatibility.</span>
           </h2>
-          <p className="mt-5 max-w-[850px] text-[14px] font-light leading-[1.75] text-white/55 sm:text-[16px]">
+          <p className="site-section-description mt-5 max-w-[850px]">
             Bring data from field instruments, PLCs and automation systems into a unified environment through widely used industrial communication standards.
           </p>
         </div>

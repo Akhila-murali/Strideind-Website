@@ -11,18 +11,34 @@ import Control from "./pages/control/Control";
 import Insight from "./pages/insight/Insight";
 import AiCam from "./pages/ai-cam/AiCam";
 import StridePABX from "./pages/stride-pabx/StridePABX";
-import ComingSoon from "./components/common/ComingSoon";
+import ERP from "./pages/erp/ERP";
+import StrideAI from "./pages/StrideAI/StrideAI";
 import NotFound from "./components/common/NotFound";
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const [loaderVisible, setLoaderVisible] = useState(true);
+  const [loaderExiting, setLoaderExiting] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
+    const exitTimer = setTimeout(() => setLoaderExiting(true), 1600);
+    const removeTimer = setTimeout(() => setLoaderVisible(false), 2150);
+
+    return () => {
+      clearTimeout(exitTimer);
+      clearTimeout(removeTimer);
+    };
   }, []);
 
-  if (loading) return <Loader />;
+  useEffect(() => {
+    if (!loaderVisible) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [loaderVisible]);
 
   return (
     <Router>
@@ -50,10 +66,12 @@ export default function App() {
           <Route path="/products/stride-pabx" element={<Navigate to="/product/stride-pabx" replace />} />
           <Route path="/product/stride-pbx" element={<Navigate to="/product/stride-pabx" replace />} />
           <Route path="/products/stride-pbx" element={<Navigate to="/product/stride-pabx" replace />} />
-          <Route path="/product/ERP" element={<ComingSoon />} />
+          <Route path="/product/ERP" element={<ERP />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
+      <StrideAI />
+      {loaderVisible && <Loader exiting={loaderExiting} />}
     </Router>
   );
 }

@@ -1,36 +1,21 @@
 import React from "react";
-import { Eye, Gauge, Layers3, ShieldCheck, SlidersHorizontal, Users } from "lucide-react";
+import { Eye, Gauge, History } from "lucide-react";
 
 const benefits = [
   {
     icon: Eye,
-    title: "Centralized Visibility",
-    description: "Bring key operational information into one clear, unified view.",
+    title: "Centralized Operational Visibility",
+    description: "View critical drilling parameters, live measurements, gauges, and monitoring information through a unified platform.",
   },
   {
     icon: Gauge,
-    title: "Faster Decision Support",
-    description: "Give teams the context they need to respond with greater confidence.",
+    title: "Informed Operational Decisions",
+    description: "Identify parameter changes, review trends, and recognize configured alarm conditions to support timely operational decisions.",
   },
   {
-    icon: ShieldCheck,
-    title: "Operational Continuity",
-    description: "Maintain a consistent view of operations across changing conditions.",
-  },
-  {
-    icon: SlidersHorizontal,
-    title: "Flexible Configuration",
-    description: "Adapt screens, parameters, and workflows to different operational requirements.",
-  },
-  {
-    icon: Users,
-    title: "Clearer Collaboration",
-    description: "Help field and management teams work from the same operational picture.",
-  },
-  {
-    icon: Layers3,
-    title: "Scalable Foundation",
-    description: "Support evolving drilling environments without changing the overall platform experience.",
+    icon: History,
+    title: "Better Operational Understanding",
+    description: "Combine real-time monitoring with historical trend analysis to better understand drilling parameter behavior over time.",
   },
 ];
 
@@ -46,11 +31,11 @@ export default function CoreBenefits() {
         </div>
 
         <h2 className="mt-6 text-[clamp(34px,3.4vw,56px)] font-extrabold leading-[1.08] tracking-[-0.035em] text-white">
-          Built for Confident. <span className="text-[#10c6ce]">Connected Operations.</span>
+          Built for Clarity. <span className="text-[#10c6ce]">Designed for Better Drilling Decisions.</span>
         </h2>
 
         <p className="mt-5 max-w-[900px] text-[clamp(14px,1vw,16px)] font-light leading-[1.8] text-white/50">
-          FutuDrill Core is designed to make drilling operations easier to understand,<br className="hidden sm:block" /> manage, and scale across changing operational needs.
+          FutuDrill Core brings critical drilling measurements, live monitoring, and operational analysis into a unified interface, helping teams understand changing rig conditions and respond with greater confidence.
         </p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-7">

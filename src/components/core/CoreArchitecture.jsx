@@ -51,7 +51,7 @@ export default function CoreArchitecture() {
             <h2 className="m-0 text-[clamp(36px,5vw,56px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-white">
               {architectureData.title}
             </h2>
-            <p className="mt-6 max-w-[540px] text-[13px] font-light leading-[1.85] text-white/50 sm:text-[15px]">
+            <p className="site-section-description mt-6 max-w-[540px]">
               {architectureData.description}
             </p>
           </Reveal>

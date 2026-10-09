@@ -27,7 +27,7 @@ export default function Reveal({
       className={className}
       initial={reduceMotion ? false : hidden}
       whileInView={visible}
-      viewport={{ once: false, amount: 0.18 }}
+      viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: variant === "image" ? 1 : 0.88, delay, ease: [0.16, 1, 0.3, 1] }}
       style={reduceMotion ? undefined : { willChange: "transform, opacity, filter, clip-path" }}
     >

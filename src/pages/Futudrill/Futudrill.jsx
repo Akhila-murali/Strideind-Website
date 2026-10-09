@@ -121,7 +121,7 @@ export default function Futudrill() {
             <div className="flex-1">
               <p className="mb-3.5 block text-left text-[10px] font-bold uppercase tracking-[0.22em] text-[#1a9fa0]">INTEGRATED SOLUTIONS</p>
               <h2 className="mb-5 text-left text-[clamp(2.2rem,5.5vw,3.8rem)] font-extrabold uppercase leading-none tracking-[-0.02em] text-white">SOLUTIONS FOR<br /><span className="text-[#22c4c5]">EVERY LAYER.</span></h2>
-              <p className="m-0 max-w-[720px] text-[15px] font-light leading-[1.8] text-white/50">
+              <p className="site-section-description m-0 max-w-[720px]">
                 Futudrill transforms complex drilling operations into streamlined, data-driven workflows —<br />
                 from downhole instrumentation to cloud-connected dashboards accessible from<br />
                 anywhere on Earth.
@@ -144,12 +144,12 @@ export default function Futudrill() {
                 </div>
                 <div className="flex flex-1 flex-col px-6 pb-7 pt-6">
                   <div className="mb-3.5 w-fit border border-[#1a9fa0]/30 bg-[#1a9fa0]/[0.12] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-[#1a9fa0]">{solution.badge}</div>
-                  <h3 className="mb-3 text-[11px] font-bold uppercase leading-[1.5] tracking-[0.14em] text-white">
+                  <h3 className="site-card-title mb-3 uppercase tracking-[0.08em]">
                     {solution.title.split("\n").map((line, index) => (
                       <React.Fragment key={line}>{line}{index === 0 && <br />}</React.Fragment>
                     ))}
                   </h3>
-                  <p className="m-0 flex-1 text-[13px] font-light leading-[1.75] text-white/50">{solution.desc}</p>
+                  <p className="site-card-description m-0 flex-1">{solution.desc}</p>
                 </div>
               </button>
             ))}

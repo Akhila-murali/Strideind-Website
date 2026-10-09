@@ -64,6 +64,16 @@ phrases, not as a large background color without a clear reason.
 - Buttons and compact links: normally `11-14px`, bold, with restrained letter
   spacing.
 
+Use the shared typography classes for all new marketing sections and cards:
+
+- `site-section-description` for section-level body copy (`15-16px`).
+- `site-card-title` for card headings (`18px`).
+- `site-card-description` for card body copy (`14px`).
+
+Do not set marketing or card body copy below `14px`. Sizes below `14px` are
+reserved for compact interface text such as badges, eyebrows, status labels,
+navigation, metadata, and diagram annotations.
+
 Do not change established font sizes locally without checking the adjacent Home
 page pattern and the component's responsive behavior.
 

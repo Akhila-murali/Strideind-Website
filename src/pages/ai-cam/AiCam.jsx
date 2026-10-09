@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from "react";
 import Hero from "../../components/common/Hero";
 import AiCamOverviewSection from "../../components/ai-cam/AiCamOverviewSection";
 import AiCamFeaturesSection from "../../components/ai-cam/AiCamFeaturesSection";
+import AiMaintenanceVerificationSection from "../../components/ai-cam/AiMaintenanceVerificationSection";
 import Footer from "../../components/layout/Footer";
 
 const heroData = {
@@ -9,24 +10,24 @@ const heroData = {
   badge: "FutuDrill AI Cam",
   image:
     process.env.PUBLIC_URL +
-    "/Modern%20Dome%20Security%20Camera%20on%20Office%20Facade.png",
-  imageAlt: "Modern dome security camera mounted on an office facade",
+    "/PTZ%20Dome%20Camera%20at%20Dusk.png",
+  imageAlt: "PTZ dome camera monitoring an industrial site at dusk",
   imagePosition: "object-center",
   title: (
     <>
-      Smarter Surveillance for
+      AI-Powered CCTV
       <br />
-      <span className="text-[#22c4c5]">Safer Operations.</span>
+      <span className="text-[#22c4c5]">Safety &amp; Intelligence.</span>
     </>
   ),
   descriptions: [
-    "AI-powered camera systems for monitoring, safety, and automation across industrial operations.",
+    "FutuDrill AI CAM combines ten integrated monitoring modules for PPE, access control, driver and driller behavior, inventory activity, falling objects, thermal conditions, speed and movement, drilling assistance, and maintenance verification through AI-powered visual monitoring and event-based alerts.",
   ],
   stats: [
     { value: "24/7", label: "Site Monitoring" },
-    { value: "AI", label: "Event Detection" },
-    { value: "Instant", label: "Safety Alerts" },
-    { value: "Remote", label: "Operational View" },
+    { value: "10", label: "Integrated Modules" },
+    { value: "AI", label: "Vision Monitoring" },
+    { value: "Event", label: "Based Alerts" },
   ],
 };
 
@@ -40,6 +41,7 @@ export default function AiCam() {
       <Hero data={heroData} />
       <AiCamOverviewSection />
       <AiCamFeaturesSection />
+      <AiMaintenanceVerificationSection />
       <Footer />
     </main>
   );

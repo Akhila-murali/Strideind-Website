@@ -1,8 +1,9 @@
 import React, { useLayoutEffect } from "react";
 import Hero from "../../components/common/Hero";
 import Overview from "../../components/common/Overview";
-import { ClipboardCheck, Monitor, UserRound } from "lucide-react";
+import { Activity, BarChart3, RadioTower } from "lucide-react";
 import CoreArchitecture from "../../components/core/CoreArchitecture";
+import CoreCapabilitiesSection from "../../components/core/CoreCapabilitiesSection";
 import CoreBenefits from "../../components/core/CoreBenefits";
 import Footer from "../../components/layout/Footer";
 
@@ -15,32 +16,33 @@ export default function Core() {
     <main className="product-detail min-h-screen bg-[#05090b] font-['Manrope'] text-white">
       <Hero data={{
         badge: "FutuDrill Platform",
-        image: process.env.PUBLIC_URL + "/Core_hero.png",
-        imageAlt: "Offshore drilling platform at dusk",
+        image: process.env.PUBLIC_URL + "/Drilling Rig Beneath Open Skies.png",
+        imageAlt: "Drilling rig beneath open skies",
         imagePosition: "object-[64%_center]",
         title: <>FutuDrill <span className="text-[#1a9fa0]">Core</span></>,
-        subtitle: <>Real-Time Intelligence<br />for Smarter Drilling Operations.</>,
-        descriptions: ["FutuDrill Core brings together data acquisition, real-time monitoring, trending and reporting into a unified platform, helping you make faster, safer and more informed decisions across your drilling operations."],
+        subtitle: <>Real-Time Drilling Monitoring.<br />Complete Operational Visibility.</>,
+        descriptions: ["FutuDrill Core brings live PLC data, configurable dashboards, operational gauges, trend analysis, alarms, and drilling recorder views into one centralized monitoring platform. It enables drilling teams to track critical rig parameters, analyze operational trends, and make informed decisions using real-time and historical data."],
         stats: [
-          { value: "24/7", label: "Live Monitoring" },
-          { value: "Real-Time", label: "Data Acquisition" },
-          { value: "Improved", label: "Operational Safety" },
-          { value: "Higher", label: "Drilling Efficiency" },
+          { value: "Live", label: "PLC Data Monitoring" },
+          { value: "Custom", label: "Rig Dashboards" },
+          { value: "Trend", label: "Data Analysis" },
+          { value: "Reports", label: "Data Export" },
         ],
       }} />
       <Overview data={{
         eyebrow: "OVERVIEW",
-        title: <>A Unified Platform<br />for <span className="text-[#19aeb2]">Drilling Operations.</span></>,
-        description: "FutuDrill Core is a comprehensive data acquisition, monitoring, and analytics platform designed for modern drilling operations. It collects real-time data from rig sensors, visualizes critical parameters, and provides actionable insights to improve operational efficiency, safety, and decision-making.",
+        title: <>Every Drilling Parameter<br /><span className="text-[#19aeb2]">in View.</span></>,
+        description: "FutuDrill Core brings live PLC measurements, configurable dashboards, operational gauges, and drilling data visualization into one centralized platform. It enables drilling teams to monitor critical rig parameters, track operational conditions, analyze live and historical trends, and access recorded data through a single monitoring environment.",
         image: process.env.PUBLIC_URL + "/bg%20core.png",
         imageAlt: "FutuDrill Core drilling operations",
         capabilities: [
-          { icon: UserRound, title: "Acquire", description: "Collect data from multiple rig systems" },
-          { icon: Monitor, title: "Monitor", description: "Real-time visualization and alerts" },
-          { icon: ClipboardCheck, title: "Optimize", description: "Actionable insights for better decisions" },
+          { icon: RadioTower, title: "Acquire", description: "Receive live PLC tag measurements" },
+          { icon: Activity, title: "Monitor", description: "Visualize rig parameters and alarms" },
+          { icon: BarChart3, title: "Analyze", description: "Explore live and historical trends" },
         ],
       }} />
       <CoreArchitecture />
+      <CoreCapabilitiesSection />
       <CoreBenefits />
       <Footer />
     </main>

@@ -5,57 +5,57 @@ import Reveal from "../common/Reveal";
 
 const insightCapabilities = [
   {
-    eyebrow: "WELL CONTEXT",
+    eyebrow: "OPERATIONAL VISIBILITY",
     title: (
       <>
-        Understand Every Well
+        Understand Drilling Operations
         <br />
         in Context.
       </>
     ),
     description:
-      "Bring well details, rig information, operational state, and associated drilling data together so teams can clearly understand what is happening at each well.",
+      "Bring together relevant drilling information and operational indicators to provide a clearer view of well activity and performance.",
     icon: Gauge,
     points: [
-      "Well and rig context",
-      "Current operational activity",
-      "Historical operation records",
+      "Well and rig information",
+      "Operational indicators",
+      "Performance overview",
     ],
   },
   {
-    eyebrow: "DEPTH & PERFORMANCE",
+    eyebrow: "PERFORMANCE ANALYTICS",
     title: (
       <>
-        See How Performance
+        Understand Performance
         <br />
-        Changes With Depth.
+        Through Data.
       </>
     ),
     description:
-      "Relate drilling readings and operational behaviour to depth progression, helping teams understand how performance changes through different sections of the hole.",
+      "Explore drilling performance through visual trends and key indicators to better understand operational changes and identify areas that require attention.",
     icon: Activity,
     points: [
-      "Depth-based parameter tracking",
-      "Performance across drilling intervals",
-      "Compare behaviour at different depths",
+      "Performance indicators",
+      "Operational trends",
+      "Data comparison",
     ],
   },
   {
-    eyebrow: "OPERATION TIMELINE",
+    eyebrow: "REPORTING & INSIGHTS",
     title: (
       <>
-        Follow the Operation
+        Turn Operational Data
         <br />
-        as It Happens.
+        Into Clear Reports.
       </>
     ),
     description:
-      "Track drilling activities such as drilling, connections, tripping, and other operational events in sequence to provide clearer context around performance changes.",
+      "Present drilling information in structured reports and summaries that support performance reviews, communication, and informed decision-making.",
     icon: Clock3,
     points: [
-      "Activity and connection events",
-      "Operational sequence history",
-      "Time-based event correlation",
+      "Structured reporting",
+      "Performance summaries",
+      "Decision support",
     ],
   },
 ];
@@ -84,13 +84,13 @@ export default function InsightCapabilities() {
             <h2 className="mt-5 text-[clamp(26px,2.4vw,40px)] font-bold leading-[1.02] tracking-[-0.025em] text-white">
               {title}
             </h2>
-            <p className="mt-5 text-[15px] font-light leading-[1.8] text-white/55 sm:text-base xl:max-w-[440px]">
+            <p className="site-section-description mt-5 xl:max-w-[440px]">
               {description}
             </p>
 
             <ul className="mt-6 space-y-2.5">
               {points.map((point) => (
-                <li key={point} className="flex items-center gap-2.5 text-[12px] leading-relaxed text-white/65 sm:text-[13px]">
+                <li key={point} className="flex items-center gap-2.5 text-[14px] leading-relaxed text-white/70">
                   <CheckCircle2 aria-hidden="true" strokeWidth={1.7} className="h-4 w-4 shrink-0 text-[#22c4c5]" />
                   <span>{point}</span>
                 </li>

@@ -7,21 +7,21 @@ import Footer from "../../components/layout/Footer";
 
 const heroData = {
   id: "stride-pabx",
-  badge: "STRIDEPABX",
+  badge: "FUTUDRILL VOICE",
   image:
-    process.env.PUBLIC_URL + "/Modern%20Office%20Communication%20Setup.png",
+    process.env.PUBLIC_URL + "/Moody%20Office%20Desk%20with%20Active%20VoIP%20Phone.png",
   imageAlt:
     "VoIP office workspace with an IP phone and desktop calling interface",
   imagePosition: "object-center",
   title: (
     <>
-      Unified Voice Communication.
+      Unified Rig Communication.
       <br />
-      <span className="text-[#1a9fa0]">Built Around Your Team.</span>
+      <span className="text-[#1a9fa0]">Built for Every Operational Area.</span>
     </>
   ),
   descriptions: [
-    "StridePABX brings desk phones, desktop softphones, and connected extensions into one centralized communication system. It enables teams to make and receive calls across devices, simplifies internal communication, and provides a reliable voice environment for day-to-day business operations.",
+    "FutuDrill Voice brings Public Address, wired and wireless communication, Talkback, and SIP corporate telephony into one centralized communication infrastructure for drilling sites.",
   ],
   stats: [],
 };
@@ -47,11 +47,11 @@ export default function StridePABX() {
       <Overview data={{
         eyebrow: "OVERVIEW",
         title: <>
-          One Voice System.<br />
-          <span className="text-[#1a9fa0]">Every Team Connected.</span>
+          One Communication Infrastructure.<br />
+          <span className="text-[#1a9fa0]">Every Critical Area Connected.</span>
         </>,
         description:
-          "StridePABX provides a centralized communication environment for day-to-day business calling. It connects desk phones, desktop-based calling, and internal extensions so employees can make and receive calls across supported devices, reach colleagues more easily, and maintain a consistent flow of communication between teams and work locations.",
+          "FutuDrill Voice connects Talkback, Public Address, wired and wireless communication, and SIP telephony within a unified rig communication environment. It supports operational announcements, two-way coordination, mobile personnel communication, and corporate calling across drilling sites and connected offices.",
         image:
           process.env.PUBLIC_URL + "/Modern%20Office%20Desk%20with%20IP%20Phone.png",
         imageAlt: "Modern office desk with an IP phone for business communication",

@@ -42,7 +42,7 @@ export default function InsightValueSection() {
           Operational Intelligence,<br /><span className="text-[#22c4c5]">Delivered Clearly.</span>
         </h2>
 
-        <p className="mt-5 max-w-[850px] text-[14px] font-light leading-[1.7] text-white/55 sm:text-[16px]">
+        <p className="site-section-description mt-5 max-w-[850px]">
           Turn complex operational data into clear, confident decisions.
           Insight helps drilling teams work smarter, move faster, and reduce
           risk across every stage.
@@ -58,11 +58,11 @@ export default function InsightValueSection() {
                 <Icon aria-hidden="true" className="h-6 w-6" strokeWidth={1.7} />
               </span>
 
-              <h3 className="mt-6 text-[18px] font-bold leading-tight text-white">
+              <h3 className="site-card-title mt-6">
                 {title}
               </h3>
 
-              <p className="mt-4 text-[13px] font-light leading-[1.7] text-white/50">
+              <p className="site-card-description mt-4">
                 {description}
               </p>
             </article>

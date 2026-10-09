@@ -38,7 +38,7 @@ export default function DrillersControlChairSection() {
             <span className="text-[#22c4c5]">Built Around the Operator.</span>
           </h2>
 
-          <p className="mt-6 max-w-[650px] text-[14px] font-light leading-[1.8] text-white/55 sm:text-[16px]">
+          <p className="site-section-description mt-6 max-w-[650px]">
             FutuDrill Control provides driller's control chair solutions configured around the rig's equipment interfaces, operator requirements, and control layout.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function DrillersControlChairSection() {
                 </span>
                 <div>
                   <h3 className="text-[18px] font-bold text-white">{title}</h3>
-                  <p className="mt-2 text-[13px] font-light leading-[1.65] text-white/50 sm:text-[14px]">
+                  <p className="site-card-description mt-2">
                     {description}
                   </p>
                 </div>

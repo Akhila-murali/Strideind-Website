@@ -5,13 +5,13 @@ function StandardOverview({ data }) {
   const capabilities = data.capabilities || [];
 
   return (
-    <section className="relative overflow-hidden border-b border-white/[0.08] bg-[#050809] px-[5%] py-16 lg:py-[74px]">
+    <section className="relative overflow-hidden border-b border-white/[0.08] bg-[#050809] px-[5%] pb-4 pt-14 sm:py-16 lg:py-[74px]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#1a9fa0]/35 to-transparent" />
       <div className="mx-auto grid w-full max-w-[1920px] items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-[7%]">
         <Reveal className="max-w-[620px]" direction="left">
           <p className="mb-4 text-[12px] font-semibold tracking-[0.12em] text-[#19aeb2]">{data.eyebrow}</p>
           <h2 className="m-0 text-[clamp(36px,5vw,56px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-white">{data.title}</h2>
-          <p className="mt-6 max-w-[590px] text-[13px] font-light leading-[1.85] text-white/50 sm:text-[15px]">{data.description}</p>
+          <p className="site-section-description mt-6 max-w-[590px]">{data.description}</p>
         </Reveal>
         <Reveal className="w-full max-w-[700px] justify-self-start" direction="right" delay={0.08} variant="image">
         <div className="relative aspect-video w-full overflow-hidden rounded-[12px] border border-[#1a9fa0]/25 bg-[#091216]">
@@ -68,7 +68,7 @@ function ConnectOverview({ data, variant }) {
               {data.title}
             </h2>
 
-            <p className="mt-6 max-w-[680px] text-[14px] font-light leading-[1.75] text-white/55 sm:text-[16px]">
+            <p className="site-section-description mt-6 max-w-[680px]">
               {data.description}
             </p>
 
@@ -82,10 +82,10 @@ function ConnectOverview({ data, variant }) {
                       strokeWidth={1.8}
                     />
                     <div>
-                      <h3 className="text-[13px] font-bold leading-tight text-white">
+                      <h3 className="site-card-title">
                         {title}
                       </h3>
-                      <p className="mt-2 text-[11px] font-light leading-[1.5] text-white/45">
+                      <p className="site-card-description mt-2">
                         {description}
                       </p>
                     </div>

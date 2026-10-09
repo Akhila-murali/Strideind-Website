@@ -51,8 +51,8 @@ export default function Footer({ blend = false }) {
             <div className="footer-col">
               <h4 className="col-title mb-5 text-[11px] font-bold uppercase tracking-[0.12em] text-white/80">Company</h4>
               <ul className="flex list-none flex-col gap-3">
-                <li><a className="text-[13px] font-light text-white/50 no-underline transition-colors hover:text-[#22b8b9]" href="#">About</a></li>
-                <li><a className="text-[13px] font-light text-white/50 no-underline transition-colors hover:text-[#22b8b9]" href="#">Careers</a></li>
+                <li><button type="button" className="cursor-pointer border-0 bg-transparent p-0 text-[13px] font-light text-white/50 transition-colors hover:text-[#22b8b9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22b8b9]" onClick={() => goToSection("about")}>About</button></li>
+                <li><span className="text-[13px] font-light text-white/35">Careers</span></li>
               </ul>
             </div>
 

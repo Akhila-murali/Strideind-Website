@@ -43,7 +43,7 @@ export default function ControlCapabilitiesSection() {
           </div>
 
           <div>
-            <p className="max-w-[780px] text-[15px] font-light leading-[1.85] text-white/55 sm:text-[17px]">
+            <p className="site-section-description max-w-[780px]">
               FutuDrill Control supports a re-programmable collision avoidance system designed for safe operation across different rig types and operational environments. Configurable detection zones help identify unsafe equipment proximity, while immediate alerts give operators time to respond before a potential collision develops.
             </p>
           </div>
@@ -58,7 +58,7 @@ export default function ControlCapabilitiesSection() {
                 <Icon aria-hidden="true" className="h-9 w-9 text-[#22c4c5]" strokeWidth={1.65} />
               </div>
               <h3 className="mt-8 text-[18px] font-bold text-white">{title}</h3>
-              <p className="mt-3 text-[13px] font-light leading-[1.75] text-white/50">{description}</p>
+              <p className="site-card-description mt-3">{description}</p>
             </article>
             </Reveal>
           ))}

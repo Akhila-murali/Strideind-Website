@@ -1,8 +1,11 @@
 import React from "react";
 
-export default function Loader() {
+export default function Loader({ exiting = false }) {
   return (
-    <div className="fixed left-0 top-0 z-[9999] flex h-screen w-full items-center justify-center bg-[#2aa3a3]">
+    <div
+      className={`fixed inset-0 z-[9999] flex h-screen w-full items-center justify-center bg-[#2aa3a3] transition-opacity duration-500 ease-out ${exiting ? "pointer-events-none opacity-0" : "opacity-100"}`}
+      aria-hidden={exiting}
+    >
       <div className="relative h-[140px] w-[140px]">
         <img
           src={process.env.PUBLIC_URL + "/loader.png"}

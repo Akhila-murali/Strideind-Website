@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BellRing, Radar, SlidersHorizontal } from "lucide-react";
+import { Armchair, Boxes, Monitor } from "lucide-react";
 import HorizontalScroll from "../common/HorizontalScroll";
 import Reveal from "../common/Reveal";
 
@@ -39,19 +39,19 @@ const sections = {
 
 const controlCapabilities = [
   {
-    icon: SlidersHorizontal,
-    title: "Re-Programmable",
-    description: "Adapt protection logic to different rig types and operating environments.",
+    icon: Armchair,
+    title: "Driller-Centered Control",
+    description: "Configure the control chair, operator interfaces, and control layout around rig equipment, operator requirements, and crew workflows.",
   },
   {
-    icon: Radar,
-    title: "Configurable Detection Zones",
-    description: "Define monitored movement zones around critical rig equipment.",
+    icon: Boxes,
+    title: "Rig Equipment & Power",
+    description: "Deliver project-aligned control for top drive, catwalk, iron roughneck, and included rig power systems within the defined equipment scope.",
   },
   {
-    icon: BellRing,
-    title: "Instant Alerts",
-    description: "Warn operators when equipment approaches a configured collision risk.",
+    icon: Monitor,
+    title: "HMI, PLC & Protection",
+    description: "Combine configurable HMI screens and PLC-connected operation with re-programmable collision protection, detection zones, and operator alerts.",
   },
 ];
 
@@ -70,7 +70,7 @@ export default function FutudrillModuleSection({ variant }) {
               <span className="text-[#22c4c5]">Safer Site Operations.</span>
             </h2>
 
-            <p className="mt-6 max-w-[650px] text-[14px] font-light leading-[1.8] text-white/55 sm:text-[16px]">
+            <p className="site-section-description mt-6 max-w-[650px]">
               FutuDrill AI CAM combines continuous site monitoring, AI-based
               event detection, instant alerts, and remote visibility in one
               operational view. It helps teams identify unusual activity
@@ -112,11 +112,11 @@ export default function FutudrillModuleSection({ variant }) {
               <span className="h-px w-14 bg-white/25" />
             </div>
             <h2 className="mt-4 text-[clamp(38px,4.5vw,60px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-white">
-              Collision Prevention<br />
-              <span className="text-[#22c4c5]">Built Around the Rig.</span>
+              Integrated Rig Control.<br />
+              <span className="text-[#22c4c5]">Built Around the Operation.</span>
             </h2>
-            <p className="mt-5 max-w-[720px] text-[14px] font-light leading-[1.75] text-white/55 sm:text-[16px]">
-              FutuDrill Control supports re-programmable collision avoidance for safer operation across different rig types and field conditions, using configurable detection zones and immediate operator alerts.
+            <p className="site-section-description mt-5 max-w-[720px]">
+              FutuDrill Control brings operator workspaces, critical equipment control, power-system scope, configurable HMI applications, PLC integration, and collision protection into project-specific control solutions aligned with the rig layout and operating requirements.
             </p>
             <Link to="/products/futudrill/control" className="group mt-6 inline-flex items-center font-['Manrope'] text-[11px] font-bold uppercase tracking-[0.1em] text-[#22c4c5] no-underline transition-colors hover:text-white">
               Learn More <span className="ml-2 transition-transform group-hover:translate-x-1.5">→</span>
@@ -126,11 +126,11 @@ export default function FutudrillModuleSection({ variant }) {
 
           <div className="relative grid gap-4 sm:grid-cols-3">
             {controlCapabilities.map(({ icon: Icon, title, description }, index) => (
-              <Reveal key={title} direction="right" delay={index * 0.09}>
-              <article key={title} className="rounded-[7px] border border-[#244047]/80 bg-[#09161a] p-6 transition-colors duration-300 hover:border-[#22c4c5]/55">
+              <Reveal key={title} className="h-full" direction="right" delay={index * 0.09}>
+              <article key={title} className="h-full rounded-[7px] border border-[#244047]/80 bg-[#09161a] p-6 transition-colors duration-300 hover:border-[#22c4c5]/55">
                 <Icon aria-hidden="true" className="h-8 w-8 text-[#22c4c5]" strokeWidth={1.7} />
-                <h3 className="mt-5 text-[15px] font-bold leading-tight text-white">{title}</h3>
-                <p className="mt-3 text-[12px] font-light leading-[1.65] text-white/50">{description}</p>
+                <h3 className="site-card-title mt-5">{title}</h3>
+                <p className="site-card-description mt-3">{description}</p>
               </article>
               </Reveal>
             ))}
@@ -151,7 +151,7 @@ export default function FutudrillModuleSection({ variant }) {
           <h2 className="mt-4 text-[clamp(38px,4.5vw,60px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-white">
             One Well. Every Data Source. <span className="text-[#22c4c5]">Connected.</span>
           </h2>
-          <p className="mt-4 max-w-[900px] text-[14px] font-light leading-[1.75] text-white/55 sm:text-[16px]">
+          <p className="site-section-description mt-4 max-w-[900px]">
             FutuDrill Connect links field equipment, control systems, and third-party platforms through a unified and secure communication framework, enabling real-time data flow and seamless collaboration across the drilling operation.
           </p>
           <Link to="/products/futudrill/connect" className="group mt-6 inline-flex items-center font-['Manrope'] text-[11px] font-bold uppercase tracking-[0.1em] text-[#22c4c5] no-underline transition-colors hover:text-white">
@@ -178,7 +178,7 @@ export default function FutudrillModuleSection({ variant }) {
             <span className="h-px w-14 bg-white/25" />
           </div>
           <h2 className="mt-4 text-[clamp(38px,4.5vw,60px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-white">{section.title}</h2>
-          <p className="mt-5 text-[14px] font-light leading-[1.75] text-white/55 sm:text-[16px]">{section.description}</p>
+          <p className="site-section-description mt-5">{section.description}</p>
           <Link to={section.link} className="group mt-6 inline-flex items-center font-['Manrope'] text-[11px] font-bold uppercase tracking-[0.1em] text-[#22c4c5] no-underline transition-colors hover:text-white">
             Learn More <span className="ml-2 transition-transform group-hover:translate-x-1.5">→</span>
           </Link>
@@ -199,7 +199,7 @@ function ConnectCard({ image, label, title, description }) {
       <div className="flex flex-1 flex-col px-6 py-8 sm:px-8 xl:px-9 xl:pb-9 xl:pt-4">
         <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#22c4c5]">{label}</p>
         <h3 className="mt-4 text-[clamp(22px,2vw,28px)] font-bold leading-tight text-white">{title}</h3>
-        <p className="mt-4 max-w-[620px] text-[14px] font-light leading-[1.55] text-white/55 sm:text-[16px]">{description}</p>
+        <p className="site-section-description mt-4 max-w-[620px]">{description}</p>
       </div>
     </article>
   );

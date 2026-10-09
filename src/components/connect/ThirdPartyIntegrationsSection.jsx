@@ -51,8 +51,8 @@ export default function ThirdPartyIntegrationsSection() {
                 <Icon aria-hidden="true" className="h-7 w-7 text-[#22c4c5]" strokeWidth={1.6} />
               </div>
 
-              <h3 className="mt-5 text-[19px] font-bold uppercase leading-[1.18] tracking-[0.02em] text-white">{title}</h3>
-              <p className="mt-4 text-[13px] font-light leading-[1.65] text-white/70">{description}</p>
+              <h3 className="site-card-title mt-5 uppercase tracking-[0.02em]">{title}</h3>
+              <p className="site-card-description mt-4">{description}</p>
 
               <div className="mt-auto flex items-center justify-between pt-5 text-[9px] font-bold uppercase tracking-[0.12em] text-[#22c4c5]">
                 <span className="flex items-center gap-2"><i className="h-1.5 w-1.5 rounded-full bg-[#23e968]" />{status}</span>

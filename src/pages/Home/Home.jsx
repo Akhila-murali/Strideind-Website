@@ -5,7 +5,6 @@ import FeatureHighlightSection from "../../components/home/FeatureHighlightSecti
 import ShowcaseSection from "../../components/home/ShowcaseSection";
 import ContactSection from "../../components/home/ContactSection";
 import Footer from "../../components/layout/Footer";
-import StrideAI from "../StrideAI/StrideAI";
 
 const heroData = {
   id: "home",
@@ -66,7 +65,6 @@ export default function Home() {
       <FeatureHighlightSection variant="product" />
       <ContactSection />
       <Footer />
-      <StrideAI />
     </>
   );
 }

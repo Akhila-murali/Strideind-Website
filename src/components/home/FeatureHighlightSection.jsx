@@ -33,7 +33,7 @@ const sections = {
       "Futudrill is a unified software and hardware architecture designed for complete drilling operations. It integrates multiple control and monitoring systems into a single platform, enabling seamless operation without interruption.",
     ],
     descriptionClassName: "futudrill-hero-desc",
-    action: { label: "LEARN MORE", to: "/products/futudrill/core", className: "btn-primary mt-4 inline-block" },
+    action: { label: "LEARN MORE", to: "/products/futudrill/", className: "btn-primary mt-4 inline-block" },
     image: process.env.PUBLIC_URL + "/bg2.png",
     imageAlt: "Futudrill Platform",
     imageWrapClassName: "futudrill-hero-img-wrap",

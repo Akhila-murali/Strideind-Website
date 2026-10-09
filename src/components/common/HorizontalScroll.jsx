@@ -46,8 +46,8 @@ export default function HorizontalScroll({ cards = [], badge = "", children, scr
           </div>
           <div className="flex flex-1 flex-col px-6 pb-6 pt-5">
             <span className="w-fit border border-[#1a9fa0]/70 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#22c4c5]">{card.category || badge}</span>
-            <h3 className="mt-4 text-[19px] font-bold leading-[1.18] text-white">{card.title}</h3>
-            <p className="mt-4 text-[13px] font-light leading-[1.65] text-white/55">{card.description}</p>
+            <h3 className="site-card-title mt-4">{card.title}</h3>
+            <p className="site-card-description mt-4">{card.description}</p>
           </div>
         </article>
       ))
