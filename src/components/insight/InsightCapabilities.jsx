@@ -5,57 +5,39 @@ import Reveal from "../common/Reveal";
 
 const insightCapabilities = [
   {
-    eyebrow: "OPERATIONAL VISIBILITY",
-    title: (
-      <>
-        Understand Drilling Operations
-        <br />
-        in Context.
-      </>
-    ),
+    eyebrow: "REAL-TIME OPERATIONAL ANALYTICS",
+    title: "Real-Time Operational Analytics",
     description:
-      "Bring together relevant drilling information and operational indicators to provide a clearer view of well activity and performance.",
+      "Live drilling parameters and equipment performance.",
     icon: Gauge,
     points: [
-      "Well and rig information",
-      "Operational indicators",
-      "Performance overview",
+      "Historical trends and operational comparisons",
+      "Customizable dashboards and KPI monitoring",
+      "Real-time alerts and event visualization",
     ],
   },
   {
-    eyebrow: "PERFORMANCE ANALYTICS",
-    title: (
-      <>
-        Understand Performance
-        <br />
-        Through Data.
-      </>
-    ),
+    eyebrow: "DRILLING PERFORMANCE",
+    title: "Drilling Performance Intelligence",
     description:
-      "Explore drilling performance through visual trends and key indicators to better understand operational changes and identify areas that require attention.",
+      "Rate of Penetration (ROP) analysis and Weight on Bit (WOB), RPM and torque trends.",
     icon: Activity,
     points: [
-      "Performance indicators",
-      "Operational trends",
-      "Data comparison",
+      "Connection time and drilling efficiency analysis",
+      "Non-Productive Time (NPT) tracking",
+      "Operational performance benchmarking",
     ],
   },
   {
-    eyebrow: "REPORTING & INSIGHTS",
-    title: (
-      <>
-        Turn Operational Data
-        <br />
-        Into Clear Reports.
-      </>
-    ),
+    eyebrow: "FLEET INTELLIGENCE",
+    title: "Fleet Intelligence & Benchmarking",
     description:
-      "Present drilling information in structured reports and summaries that support performance reviews, communication, and informed decision-making.",
+      "Centralized monitoring of multiple drilling rigs and rig-to-rig performance comparisons.",
     icon: Clock3,
     points: [
-      "Structured reporting",
-      "Performance summaries",
-      "Decision support",
+      "Fleet-wide operational KPIs",
+      "Equipment utilization and efficiency analysis",
+      "Centralized management dashboards",
     ],
   },
 ];

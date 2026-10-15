@@ -5,94 +5,94 @@ import {
   ClipboardCheck,
   Network,
   Settings,
-  Users,
   Zap,
 } from "lucide-react";
 import ScrollSection from "../common/ScrollSection";
 
 const capabilities = [
   {
+    icon: Network,
+    title: "Asset Registry & Hierarchy",
+    description:
+      "A structured, six-level asset hierarchy forms the foundation of the platform, linking sensor readings, work orders, spare parts, and inspection records to the exact equipment node they relate to.",
+    features: [
+      "6-Level Hierarchy",
+      "Smart Asset Coding",
+      "Criticality Scoring",
+      "Lifecycle Tracking",
+      "Multi-Rig Support",
+      "Sensor Mapping",
+    ],
+  },
+  {
     icon: Settings,
-    label: "Equipment Management",
-    title: "Organize and Manage Equipment Across Rigs",
+    title: "Maintenance Management",
     description:
-      "Maintain structured equipment records across rigs, including classifications, associated systems, rig areas, and operational status. Update equipment information and access equipment-specific reading logs from one system.",
+      "A fully computerized maintenance management system supports AI-triggered, manual, PM-scheduled, and sensor-threshold work order creation, covering the complete lifecycle from fault detection to verified resolution.",
     features: [
-      "Equipment Registration & Management",
-      "Equipment Classification & Rig Association",
-      "Equipment Reading History",
-    ],
-  },
-  {
-    icon: Boxes,
-    label: "Component Management",
-    title: "Detailed Component Records and Organization",
-    description:
-      "Create and maintain component records associated with equipment. Update existing records and access component details through dedicated component-management workflows.",
-    features: [
-      "Component Registration & Updates",
-      "Equipment-Linked Component Records",
-      "Component Types & Details",
-    ],
-  },
-  {
-    icon: CalendarClock,
-    label: "Preventive Maintenance",
-    title: "Structured Maintenance Planning and Scheduling",
-    description:
-      "Define preventive-maintenance templates with associated tasks and configure equipment schedules. Filter existing schedules and organize recurring maintenance through dedicated planning workflows.",
-    features: [
-      "Preventive Maintenance Templates",
-      "Maintenance Task Definitions",
-      "PM Scheduling & Management",
-    ],
-  },
-  {
-    icon: ClipboardCheck,
-    label: "Work Order Management",
-    title: "From Scheduled Maintenance to Task Completion",
-    description:
-      "Generate work orders manually or automatically from eligible PM schedules. Assigned users can view work, start activities, update tasks, and complete assigned maintenance workflows.",
-    features: [
-      "Manual & Automated Work Order Generation",
-      "Assigned User Workflows",
-      "Task Updates & Work Order Completion",
+      "Work Order Sources",
+      "Auto-Assignment",
+      "PM Plan Types",
+      "KPI Dashboard",
+      "Parts Integration",
+      "Mobile Access",
     ],
   },
   {
     icon: Zap,
-    label: "Electrical Operation Logs",
-    title: "Structured Electrical Records for Rig Operations",
+    title: "AI Predictive Maintenance",
     description:
-      "Maintain daily electrical operation logs and review historical records by rig, including generator and SCR readings, shift summaries, checklists, attendance, and operational remarks.",
+      "Machine learning models continuously analyse live sensor data from critical rig equipment, providing 48–72 hour advance warning of probable failures and enabling planned intervention rather than emergency response.",
     features: [
-      "Daily Electrical Log Management",
-      "Generator & SCR Reading Records",
-      "Historical Logs & Shift Information",
+      "Sensor Ingestion",
+      "Anomaly Detection",
+      "Failure Prediction",
+      "48–72 Hr Early Warning",
+      "Continuous Retraining",
+      "Equipment Covered",
     ],
   },
   {
-    icon: Network,
-    label: "Organization & Equipment Hierarchy",
-    title: "Structured Management Across Organizational Levels",
+    icon: ClipboardCheck,
+    title: "AI Maintenance Verification",
     description:
-      "Organize operational information across companies, regions, countries, rigs, equipment, and components. Navigate connected levels and access associated equipment through hierarchical relationships.",
+      "The AI Maintenance Verification System replaces subjective reporting with objective, camera-based proof of work by detecting maintenance-specific physical actions and generating time-stamped verification records.",
     features: [
-      "Company, Region & Country Management",
-      "Rig & Equipment Organization",
-      "Hierarchical Component Access",
+      "Activity Recognition",
+      "Technician Identity",
+      "Time-Stamped Audit Trail",
+      "CMMS Closed Loop",
+      "False Report Detection",
+      "Coverage Heatmap",
+      "CMMS Integration",
     ],
   },
   {
-    icon: Users,
-    label: "User & Access Management",
-    title: "Organized Access for Operational Teams",
+    icon: Boxes,
+    title: "Inventory & Procurement",
     description:
-      "Manage users through registration, update, and administration workflows. Roles, departments, and positions support authenticated access and role- or department-aware navigation.",
+      "A fully automated inventory and procurement workflow covers the complete lifecycle from stock alert through purchase order to goods receipt, ensuring spare parts are available when maintenance is needed.",
     features: [
-      "User Registration & Management",
-      "Role & Department-Based Access",
-      "User Position & Password Management",
+      "Auto-Reorder Engine",
+      "PRQ → PO → GRN",
+      "WO Parts Deduction",
+      "Item → Asset Link",
+      "Vendor Management",
+      "SAP Integration",
+    ],
+  },
+  {
+    icon: CalendarClock,
+    title: "Inspection & Certification",
+    description:
+      "A digital inspection and certificate lifecycle management system covers statutory, third-party, and internal inspection types, helping maintain compliance across the rig fleet.",
+    features: [
+      "Inspection Workflow",
+      "Certificate Registry",
+      "Renewal Workflow",
+      "Third-Party Certificates",
+      "Compliance Dashboard",
+      "Inspection Types Covered",
     ],
   },
 ];
@@ -100,12 +100,13 @@ const capabilities = [
 export default function ErpCapabilitiesSection() {
   return (
     <ScrollSection
-      label="ERP Capabilities"
-      heading={<>One Platform. <span className="text-[#1a9fa0]">Complete Operational Management.</span></>}
-      description="Explore integrated modules for managing rig equipment, organizing components, scheduling preventive maintenance, coordinating work orders, and maintaining electrical operation records within one centralized ERP platform."
+      label="Key Modules"
+      heading={<>A Structured Platform for <span className="text-[#1a9fa0]">Rig Operations Management.</span></>}
+      description="FutuDrill ERP combines asset hierarchy, maintenance management, predictive maintenance, maintenance verification, inventory workflows, and inspection processes into one structured platform for rig operations."
       capabilities={capabilities}
       sectionClassName="border-b border-white/[0.08] pb-4 pt-14 sm:py-20 lg:py-24"
       scrollAmount={390}
+      splitFeatures
     />
   );
 }

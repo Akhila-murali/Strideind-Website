@@ -172,6 +172,18 @@ select {
   object-fit: cover !important;
 }
 
+@media (max-width: 1024px) {
+  .hero-video .hero-static-image {
+    object-position: 70% center !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-video .hero-static-image {
+    object-position: 78% center !important;
+  }
+}
+
 /* Scroll arrows */
 /* ========================================
    FUTUDRILL — ProductDetail.css

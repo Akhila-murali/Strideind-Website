@@ -25,7 +25,7 @@ export default function CoreBenefits() {
       <div className="relative mx-auto w-full max-w-[1920px]">
         <div className="flex items-center gap-4 text-[12px] font-semibold tracking-[0.12em] text-[#12cbd2]">
           <span className="grid h-[15px] w-[15px] place-items-center rounded-full border-2 border-[#11d5dc]">
-            <span className="h-[5px] w-[5px] rounded-full bg-[#11d5dc]" />
+            
           </span>
           WHY FUTUDRILL CORE
         </div>

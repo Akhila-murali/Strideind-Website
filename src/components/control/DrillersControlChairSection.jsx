@@ -1,75 +1,102 @@
 import React from "react";
-import { Armchair, PanelsTopLeft, PlugZap, SlidersHorizontal } from "lucide-react";
+import { Armchair, Link2, Monitor, Settings } from "lucide-react";
+import Reveal from "../common/Reveal";
 
-const details = [
+const features = [
   {
-    icon: PanelsTopLeft,
-    title: "Operator Interface",
-    description: "Configured around operator requirements and crew workflows.",
+    icon: Settings,
+    title: "Rig-Specific Configuration",
+    description: "Designed for each rig's layout and control requirements.",
   },
   {
-    icon: PlugZap,
-    title: "Equipment Interfaces",
-    description: "Developed around the rig equipment interfaces included in the project.",
+    icon: Monitor,
+    title: "Operator Interfaces",
+    description: "HMI, joysticks, switches, and essential information at one workstation.",
   },
   {
-    icon: SlidersHorizontal,
-    title: "Control Layout",
-    description: "Arranged around the rig layout and project control requirements.",
+    icon: Link2,
+    title: "Equipment Integration",
+    description: "Connected to rig equipment and automation systems.",
+  },
+  {
+    icon: Armchair,
+    title: "Operator-Centered Design",
+    description: "Organized for comfortable and efficient operation.",
   },
 ];
 
 export default function DrillersControlChairSection() {
   return (
-    <section className="relative overflow-hidden border-y border-white/[0.08] bg-transparent px-[5%] py-16 font-['Manrope'] lg:py-24">
-      <div className="pointer-events-none absolute right-0 top-0 h-[420px] w-[420px] bg-[radial-gradient(circle,rgba(34,196,197,0.09),transparent_68%)]" />
+    <section className="relative overflow-hidden border-y border-white/[0.08] bg-[#03090b] px-[4%] pb-4 pt-14 font-['Manrope'] sm:py-16 lg:px-[3%] lg:py-20">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(34,196,197,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(34,196,197,0.018)_1px,transparent_1px)] bg-[size:54px_54px]" />
 
-      <div className="relative mx-auto grid w-full max-w-[1728px] gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-[8%]">
-        <div>
-          <div className="flex items-center gap-3 text-[#22c4c5]">
-            <Armchair aria-hidden="true" className="h-5 w-5" strokeWidth={1.7} />
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em]">
-              Operator Control
-            </p>
-          </div>
+      <div className="relative mx-auto w-full max-w-[1728px]">
+        <div className="grid items-center gap-8 lg:min-h-[465px] lg:grid-cols-[38%_62%] lg:items-start lg:gap-0">
+          <Reveal>
+            <div className="relative z-10 lg:pl-[5%]">
+              <div className="flex items-center gap-3 text-[#22c4c5]">
+                <Armchair aria-hidden="true" className="h-5 w-5" strokeWidth={1.7} />
+                <p className="text-[12px] font-bold uppercase tracking-[0.16em]">
+                  Driller's Control Chair
+                </p>
+              </div>
 
-          <h2 className="mt-5 text-[clamp(34px,4.2vw,58px)] font-extrabold leading-[1.04] tracking-[-0.03em] text-white">
-            Driller's Control Chair.<br />
-            <span className="text-[#22c4c5]">Built Around the Operator.</span>
-          </h2>
+              <h2 className="mt-5 text-[clamp(36px,4vw,56px)] font-extrabold leading-[1.08] tracking-[-0.035em] text-white">
+                Configured for<br />
+                <span className="text-[#22c4c5]">Real Rig Operations.</span>
+              </h2>
 
-          <p className="site-section-description mt-6 max-w-[650px]">
-            FutuDrill Control provides driller's control chair solutions configured around the rig's equipment interfaces, operator requirements, and control layout.
-          </p>
+              <p className="site-section-description mt-6 max-w-[540px] text-white/60">
+                We design and integrate driller's control chair solutions that bring together operator interfaces, equipment controls, and essential information into a unified workstation — tailored for each rig's layout, equipment configuration, and operational requirements.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.08}>
+            <div className="relative mx-auto w-full max-w-[850px] lg:w-[84%]">
+              <div className="pointer-events-none absolute inset-[10%] rounded-full bg-[#087a8e]/15 blur-[70px]" />
+              <div
+                className="relative"
+                style={{
+                  WebkitMaskImage:
+                    "radial-gradient(ellipse 88% 88% at 54% 48%, black 62%, transparent 100%)",
+                  maskImage:
+                    "radial-gradient(ellipse 88% 88% at 54% 48%, black 62%, transparent 100%)",
+                }}
+              >
+                <img
+                  src={process.env.PUBLIC_URL + "/Futuristic%20Dual-Monitor%20Operator%20Workstation.png"}
+                  alt="Industrial operator workstation with dual monitors and integrated control consoles"
+                  className="h-auto w-full object-contain"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(3,9,11,0.5),transparent_18%,transparent_82%,rgba(3,9,11,0.42))]" />
+              </div>
+            </div>
+          </Reveal>
         </div>
 
-        <div className="overflow-hidden rounded-[10px] border border-[#244047]/80 bg-[#08161a]/90">
-          <div className="flex items-center justify-between border-b border-white/[0.08] px-6 py-5 sm:px-8">
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/45">
-              Control Chair Configuration
-            </p>
-            <span className="h-2 w-2 rounded-full bg-[#22c4c5] shadow-[0_0_14px_rgba(34,196,197,0.7)]" />
-          </div>
-
-          <div className="divide-y divide-white/[0.08]">
-            {details.map(({ icon: Icon, title, description }, index) => (
+        <Reveal delay={0.12}>
+          <div className="relative z-20 mt-8 grid overflow-hidden rounded-[8px] border border-[#22c4c5]/35 bg-[#041115]/95 shadow-[0_20px_55px_rgba(0,0,0,0.32)] sm:grid-cols-2 lg:mt-0 lg:grid-cols-4">
+            {features.map(({ icon: Icon, title, description }, index) => (
               <article
-                className="group grid gap-5 px-6 py-7 sm:grid-cols-[56px_1fr_auto] sm:items-center sm:px-8"
+                className={`group flex min-h-[150px] gap-5 p-6 transition-colors hover:bg-[#07191d] sm:p-7 ${
+                  index > 0 ? "border-t border-white/[0.08] sm:border-t-0 sm:border-l" : ""
+                } ${index === 2 ? "sm:border-l-0 sm:border-t lg:border-l lg:border-t-0" : ""}`}
                 key={title}
               >
-                <span className="grid h-12 w-12 place-items-center rounded-[6px] border border-[#22c4c5]/30 bg-[#22c4c5]/[0.07] text-[#22c4c5] transition-colors group-hover:border-[#22c4c5]/60 group-hover:bg-[#22c4c5]/10">
-                  <Icon aria-hidden="true" className="h-6 w-6" strokeWidth={1.65} />
-                </span>
+                <Icon
+                  aria-hidden="true"
+                  className="mt-0.5 h-7 w-7 shrink-0 text-[#22c4c5]"
+                  strokeWidth={1.7}
+                />
                 <div>
-                  <h3 className="text-[18px] font-bold text-white">{title}</h3>
-                  <p className="site-card-description mt-2">
-                    {description}
-                  </p>
+                  <h3 className="site-card-title text-white">{title}</h3>
+                  <p className="site-card-description mt-2 text-white/55">{description}</p>
                 </div>
               </article>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

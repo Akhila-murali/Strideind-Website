@@ -17,9 +17,9 @@ const heroData = {
     process.env.PUBLIC_URL + "/ChatGPT%20Image%20Oct%201,%202026,%2012_10_00%20PM.png",
   ],
   badge: "OIL & GAS TECHNOLOGY",
-  eyebrow: "FLAGSHIP PLATFORM",
+  statement: "FLAGSHIP PLATFORM",
   title: <>FUTU<span className="text-[#1a9fa0]">DRILL</span></>,
-  descriptions: ["Futudrill is a unified software and hardware architecture designed for complete drilling operations. It integrates multiple control and monitoring systems into a single platform, enabling seamless operation without interruption. The system allows real-time monitoring and control of all rig activities while ensuring operational continuity even during system failures. By digitalizing every movement and process, Futudrill enhances decision-making, simplifies troubleshooting, and improves operational efficiency."],
+  descriptions: ["FutuDrill unifies software and hardware for complete drilling operations, integrating control and monitoring systems into one resilient platform. Real-time visibility, digitalized workflows, and continuity during system failures help teams make faster decisions, simplify troubleshooting, and improve operational efficiency."],
   stats: [
     { value: "25%", label: "Cost & Downtime Reduction" },
     { value: "50%", label: "Less Manpower Dependency" },
@@ -129,31 +129,15 @@ export default function Futudrill() {
             </div>
           </div>
 
-          <HorizontalScroll>
-            {solutions.map((solution) => (
-              <button
-                key={solution.num}
-                type="button"
-                className="group relative flex w-80 shrink-0 cursor-pointer appearance-none flex-col overflow-hidden border border-white/[0.08] bg-[#161616] text-left font-[inherit] transition-colors hover:border-[#1a9fa0]/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22c4c5] max-[900px]:w-[290px] max-[600px]:w-[270px]"
-                onClick={() => setSelectedSolution(solution)}
-                aria-label={`View details about ${solution.title.replace("\n", " ")}`}
-              >
-                <div className="relative h-[190px] w-full shrink-0 overflow-hidden bg-[#1e1e1e] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-[60px] after:bg-gradient-to-t after:from-[#161616] after:to-transparent after:content-[''] max-[900px]:h-[170px] max-[600px]:h-40">
-                  {solution.img && <img className="block h-full w-full object-cover object-center opacity-75 transition-[transform,opacity] duration-500 group-hover:scale-105 group-hover:opacity-100" src={solution.img} alt={solution.title.replace("\n", " ")} draggable={false} />}
-                  <div className="pointer-events-none absolute right-3.5 top-2.5 z-[2] text-[2.8rem] font-extrabold leading-none tracking-[-0.04em] text-white/[0.12] [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">{solution.num}</div>
-                </div>
-                <div className="flex flex-1 flex-col px-6 pb-7 pt-6">
-                  <div className="mb-3.5 w-fit border border-[#1a9fa0]/30 bg-[#1a9fa0]/[0.12] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-[#1a9fa0]">{solution.badge}</div>
-                  <h3 className="site-card-title mb-3 uppercase tracking-[0.08em]">
-                    {solution.title.split("\n").map((line, index) => (
-                      <React.Fragment key={line}>{line}{index === 0 && <br />}</React.Fragment>
-                    ))}
-                  </h3>
-                  <p className="site-card-description m-0 flex-1">{solution.desc}</p>
-                </div>
-              </button>
-            ))}
-          </HorizontalScroll>
+          <HorizontalScroll
+            cards={solutions.map((solution) => ({
+              title: solution.title.replace("\n", " "),
+              description: solution.desc,
+              image: solution.img,
+              category: solution.badge,
+            }))}
+            badge="Integrated Solution"
+          />
         </section>
 
         {selectedSolution && (

@@ -7,20 +7,22 @@ import Footer from "../../components/layout/Footer";
 
 const heroData = {
   id: "futudrill-insight",
-  badge: "FutuDrill Insight",
+  badge: "FUTUDRILL INSIGHT",
+  statement: "TURN DATA INTO VALUE",
   image:
     process.env.PUBLIC_URL +
     "/Nighttime%20Analytics%20Control%20Room.png",
   imageAlt: "Nighttime analytics control room supporting drilling performance review",
   title: (
     <>
-      Turn Drilling Data Into
+      Advanced Drilling Analytics
       <br />
-      <span className="text-[#22c4c5]">Actionable Insights.</span>
+      <span className="text-[#22c4c5]">&amp; Fleet Intelligence</span>
     </>
   ),
   descriptions: [
-    "FutuDrill Insight is an analytics and reporting solution designed to turn drilling and operational data into meaningful insights. Through performance dashboards, key performance indicators, reports, and fleet-level visibility, it aims to help teams understand operational trends, evaluate performance, and support informed decisions.",
+    "Transform real-time drilling and equipment data into actionable intelligence through advanced analytics, interactive dashboards, automated reporting, and fleet-wide performance monitoring.",
+    "Monitor individual rigs and entire fleets from one platform to identify performance gaps, detect abnormal operating trends, improve equipment utilization, and support better operational decisions.",
   ],
   stats: [],
 };
@@ -36,17 +38,20 @@ export default function Insight() {
       <Overview data={{
         eyebrow: "OVERVIEW",
         title: <>
-          The Analytics and Reporting Layer<br />
-          <span className="text-[#19aeb2]">for Drilling Operations.</span>
+          From Raw Data to<br />
+          <span className="text-[#19aeb2]">Smarter Drilling Decisions.</span>
         </>,
-        description:
-          "FutuDrill Insight is designed to bring drilling and operational data into a unified analytics environment. By presenting key performance indicators, operational trends, and structured reports, it helps teams review performance, identify patterns, and make more informed operational decisions.",
+        description: <>
+          FutuDrill Insight brings together real-time drilling parameters, equipment performance, historical trends, and operational comparisons through customizable dashboards and KPI monitoring. With centralized monitoring of multiple drilling rigs, fleet-wide operational KPIs, and rig-to-rig performance comparisons, it provides visibility across individual rigs and entire fleets.
+          <br /><br />
+          Through automated reporting, equipment health analysis, and performance monitoring, it helps identify performance gaps, detect abnormal operating trends, improve equipment utilization, and support better operational decisions.
+        </>,
         image: process.env.PUBLIC_URL + "/Field%20Engineer%20Monitoring%20Drilling%20Operations.png",
         imageAlt: "Daylight drilling rig worksite",
         showCapabilities: false,
       }} />
       <InsightCapabilities />
-      {/* <InsightValueSection /> */}
+      <InsightValueSection />
 
       <Footer />
     </main>

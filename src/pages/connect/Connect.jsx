@@ -11,15 +11,15 @@ const heroData = {
   badge: "Industrial Connectivity",
   image:
     process.env.PUBLIC_URL +
-    "/Futuristic%20Global%20Network%20Over%20Earth.png",
-  imageAlt: "Connected global network over Earth",
+    "/Industrial%20Control%20Cabinet%20in%20Modern%20Factory.png",
+  imageAlt: "Industrial control cabinet installed inside a modern factory",
   title: (
     <>
       Connecting Industrial Systems. <span className="text-[#22c4c5]">Simplifying Data Integration</span>
     </>
   ),
   descriptions: [
-    "FutuDrill Connect is an industrial data connectivity platform designed to simplify communication between PLCs, controllers, and field devices. It enables teams to configure industrial connections, organize device information, transform raw register values into meaningful operational tags, and prepare structured data for downstream monitoring and drilling systems through configurable WITS Level 0 workflows.",
+    "FutuDrill Connect simplifies communication between PLCs, controllers, and field devices. Teams can configure industrial connections, organize device data, convert raw register values into operational tags, and prepare structured data for downstream monitoring and drilling systems through configurable WITS Level 0 workflows.",
   ],
   stats: [
     { value: "PLC", label: "Connectivity" },

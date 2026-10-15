@@ -39,7 +39,7 @@ export default function HorizontalScroll({ cards = [], badge = "", children, scr
         <article key={card.title} className="group flex min-h-[510px] w-[335px] shrink-0 flex-col overflow-hidden rounded-[4px] border border-[#294047]/80 bg-[#081114] transition-[border-color,box-shadow] duration-300 hover:border-[#00e5ff] hover:shadow-[0_0_24px_rgba(0,229,255,0.35)]">
           <div className="relative h-[220px] overflow-hidden bg-[#0a1518]">
             {card.image && (
-              <img src={`${process.env.PUBLIC_URL}${card.image}`} alt={card.title} className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />
+              <img src={card.image.startsWith("http") ? card.image : `${process.env.PUBLIC_URL}${card.image}`} alt={card.title} className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />
             )}
             <span className="absolute right-5 top-3 text-[48px] font-light text-white/25">{String(index + 1).padStart(2, "0")}</span>
             <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#081114] to-transparent" />

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Armchair, Boxes, Monitor } from "lucide-react";
+import { Activity, Armchair, BarChart3, Boxes, FileBarChart, Gauge, Monitor, RadioTower, ScanSearch } from "lucide-react";
 import HorizontalScroll from "../common/HorizontalScroll";
+import ScrollSection from "../common/ScrollSection";
 import Reveal from "../common/Reveal";
 
 const sections = {
@@ -13,26 +14,26 @@ const sections = {
     badge: "Core Capability",
     cards: [
       { title: "Critical Operation Monitoring & Control", description: "Monitor and control critical rig activities in real time with reliable visibility, rapid response, and fault-tolerant operational continuity across core drilling systems.", image: "/bg23.jpg" },
-      { title: "Non-Critical Operation Monitoring", description: "Gain full visibility into auxiliary and support operations, helping crews and management reduce workload while maintaining better situational awareness.", image: "/Industrial%20Control%20Room%20Operator.png" },
+      { title: "Non-Critical Operation Monitoring", description: "Gain full visibility into auxiliary and support operations, helping crews and management reduce workload while maintaining better situational awareness.", image: "/Industrial%20Rig%20Control%20Room.png" },
       { title: "Personnel & Asset Tracking", description: "Track site personnel and equipment assets across field and camp areas to improve coordination, visibility, and operational efficiency.", image: "/Field%20Engineer%20at%20the%20Drilling%20Rig.png" },
       { title: "Camp & Site Monitoring Systems", description: "Monitor camp, site, and environmental systems end to end for complete awareness of operational conditions across the facility.", image: "/Remote%20Desert%20Drilling%20Camp.png" },
       { title: "Data Acquisition & Integration", description: "Collect and integrate real-time data from rig systems, field instruments, and third-party sources into one unified monitoring environment.", image: "/Rig%20Control%20Room%20Monitoring%20Operations.png" },
-      { title: "Trend Visualization & Reporting", description: "Visualize operational data through live dashboards, historical trends, and structured reports to support better analysis and decision-making.", image: "/bg7.png" },
+      { title: "Trend Visualization & Reporting", description: "Visualize operational data through live dashboards, historical trends, and structured reports to support better analysis and decision-making.", image: "/FutuDrill%20Trend%20Analysis%20Dashboard.png" },
     ],
   },
   insight: {
     label: "FutuDrill Insight",
     title: <>Turn Operational Data Into<br /><span className="text-[#22c4c5]">Actionable Intelligence.</span></>,
-    description: "FutuDrill Insight transforms live and historical drilling data into clear KPIs, predictive intelligence, and decision-ready operational insights for teams at every level.",
+    description: "Transform real-time drilling and equipment data into actionable intelligence through advanced analytics, interactive dashboards, automated reporting, and fleet-wide performance monitoring.",
     link: "/products/futudrill/insight",
     badge: "Insight Analytics",
     cards: [
-      { title: "Real-Time KPI Intelligence", description: "Track drilling efficiency, well progress, equipment health, and operational performance through a unified live KPI environment.", image: "/FutuDrill%20Control%20Room%20Overlooking%20Rig.png" },
-      { title: "Predictive Performance Analytics", description: "Identify emerging trends, performance loss, and abnormal operating conditions before they become costly operational events.", image: "/Industrial%20Drilling%20Control%20Room.png" },
-      { title: "Advanced Trend Visualization", description: "Explore high-frequency operational data through clear trends, correlations, and comparative views built for faster technical analysis.", image: "/bg7.png" },
-      { title: "Decision-Ready Reporting", description: "Convert complex field data into structured insights and reports that support confident operational and management decisions.", image: "/Drilling%20Operations%20Control%20Room.png" },
-      { title: "Operational Benchmarking", description: "Compare wells, crews, shifts, and operating phases against historical performance to uncover efficiency gaps and repeatable best practices.", image: "/Drilling%20Control%20Room%20Overlooking%20Rig.png" },
-      { title: "Anomaly Detection & Alerts", description: "Detect unusual patterns across live drilling data and surface early warnings that help teams investigate risks and act before performance is affected.", image: "/Drilling%20Control%20Room%20Alert%20Dashboard.png" },
+      { icon: Gauge, title: "Real-Time Operational Analytics", description: "Monitor live drilling parameters and equipment performance through operational dashboards.", features: ["Historical trends and comparisons", "Custom dashboards and KPI monitoring", "Real-time alerts and event visualization"] },
+      { icon: Activity, title: "Drilling Performance Intelligence", description: "Analyze the drilling parameters and activities that shape operational performance.", features: ["ROP, WOB, RPM and torque trends", "Connection time and drilling efficiency", "NPT tracking and benchmarking"] },
+      { icon: ScanSearch, title: "Equipment Health & Reliability", description: "Use equipment history and operating data to support reliability and maintenance decisions.", features: ["Running-hour and maintenance trends", "Deviation and anomaly detection", "Utilization, downtime and condition insights"] },
+      { icon: RadioTower, title: "Fleet Intelligence & Benchmarking", description: "Monitor multiple drilling rigs and compare performance through centralized management views.", features: ["Rig-to-rig comparisons", "Fleet-wide operational KPIs", "Utilization and efficiency analysis"] },
+      { icon: FileBarChart, title: "Intelligent Reports & Data Visualization", description: "Convert operational records into scheduled reports, interactive views, and management summaries.", features: ["Daily, weekly and monthly reports", "Charts, trends and custom KPI dashboards", "Data export, events and alarm history"] },
+      { icon: BarChart3, title: "Advanced Analytics & AI Integration", description: "Correlate current and historical data to support optimization and earlier operational insight.", features: ["Anomaly detection and early warnings", "Predictive analytics and data correlation", "FutuDrill system integration"] },
     ],
   },
 };
@@ -169,6 +170,40 @@ export default function FutudrillModuleSection({ variant }) {
   const section = sections[variant];
   if (!section) return null;
 
+  if (variant === "core") {
+    return (
+      <section className="overflow-hidden bg-transparent pb-5 pt-16 lg:py-20">
+        <div className="flex items-end justify-between gap-10 px-[5%] pb-12 max-lg:flex-col max-lg:items-start max-lg:pb-10 max-[600px]:pb-8">
+          <div className="max-w-[680px]">
+            <div className="flex items-center gap-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#22c4c5]">{section.label}</p>
+              <span className="h-px w-14 bg-white/25" />
+            </div>
+            <h2 className="mt-4 text-[clamp(38px,4.5vw,60px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-white">{section.title}</h2>
+            <p className="site-section-description mt-5">{section.description}</p>
+            <Link to={section.link} className="group mt-6 inline-flex items-center text-[11px] font-bold uppercase tracking-[0.1em] text-[#22c4c5] no-underline transition-colors hover:text-white">
+              Learn More <span className="ml-2 transition-transform group-hover:translate-x-1.5">→</span>
+            </Link>
+          </div>
+        </div>
+        <HorizontalScroll cards={section.cards} badge={section.badge} scrollAmount={355} />
+      </section>
+    );
+  }
+
+  return (
+    <ScrollSection
+      label={section.label}
+      heading={section.title}
+      description={section.description}
+      capabilities={section.cards}
+      link={section.link}
+      sectionClassName="border-b border-white/[0.08] py-16 lg:py-20"
+      scrollAmount={390}
+    />
+  );
+
+  /* Previous image-card layout retained in history.
   return (
     <section className="overflow-hidden bg-transparent pb-5 pt-16 lg:py-20">
       <div className="flex items-end justify-between gap-10 px-[5%] pb-12 max-lg:flex-col max-lg:items-start max-lg:pb-10 max-[600px]:pb-8">
@@ -186,7 +221,7 @@ export default function FutudrillModuleSection({ variant }) {
       </div>
       <HorizontalScroll cards={section.cards} badge={section.badge} scrollAmount={355} />
     </section>
-  );
+  ); */
 }
 
 function ConnectCard({ image, label, title, description }) {

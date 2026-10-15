@@ -9,7 +9,7 @@ export default function Hero({ data = {} }) {
   const images = (data.images || []).map((url) => ({ url }));
   const descriptions = data.descriptions || [];
   const stats = data.stats || [];
-  const sectionLayout = "pb-20 pt-[160px] max-md:pb-16 max-md:pt-[108px]";
+  const sectionLayout = "pb-20 pt-[160px] max-md:pb-16 max-md:pt-[132px]";
   const mediaLayout = "absolute inset-0 z-0 h-full w-full";
   const contentLayout = "ml-[5%] max-w-[680px] px-5 max-lg:max-w-[560px] max-md:ml-0 max-md:w-full";
   const mediaOverlay = "bg-[linear-gradient(to_right,rgba(10,10,10,0.92)_0%,rgba(10,10,10,0.72)_40%,rgba(10,10,10,0.45)_100%)]";
@@ -35,9 +35,12 @@ export default function Hero({ data = {} }) {
   };
 
   return (
-    <section
+    <motion.section
       className={`hero relative flex min-h-screen items-start overflow-hidden bg-[#0a0a0a] ${sectionLayout}`}
       id={data.id}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, ease: "easeOut" }}
     >
       <div className="hero-grid pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
       <div className="hero-gradient pointer-events-none absolute -left-[200px] -top-[200px] h-[700px] w-[700px] bg-[radial-gradient(circle,rgba(26,159,160,0.12)_0%,transparent_70%)]" />
@@ -63,7 +66,7 @@ export default function Hero({ data = {} }) {
             <img
               src={data.image}
               alt={data.imageAlt || ""}
-              className={`h-full w-full object-cover ${data.imagePosition || "object-center"}`}
+              className={`hero-static-image h-full w-full object-cover ${data.imagePosition || "object-center"}`}
             />
           </picture>
         ) : null}
@@ -94,6 +97,13 @@ export default function Hero({ data = {} }) {
           {data.title}
         </h1>
 
+        {data.statement && (
+          <div className="mb-5 flex items-center gap-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#22c4c5]">
+            <span aria-hidden="true" className="h-px w-10 bg-[#1a9fa0]/70" />
+            <p className="m-0">{data.statement}</p>
+          </div>
+        )}
+
         {data.subtitle && (
           <h2 className="mb-5 text-[clamp(21px,2vw,30px)] font-bold leading-[1.15] tracking-[-0.02em] text-white/95">
             {data.subtitle}
@@ -102,7 +112,7 @@ export default function Hero({ data = {} }) {
 
         {descriptions.map((text, index) => (
           <p
-            className="hero-sub mb-5 max-w-[590px] text-base font-light leading-[1.8] text-white/55"
+            className="hero-sub mb-5 max-w-[680px] text-[15px] font-light leading-[1.75] text-white/55"
             key={index}
           >
             {text}
@@ -159,6 +169,6 @@ export default function Hero({ data = {} }) {
       <div aria-hidden="true" className="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2">
         <div className="scroll-line" />
       </div>
-    </section>
+    </motion.section>
   );
 }

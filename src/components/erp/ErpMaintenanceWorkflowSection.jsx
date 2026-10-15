@@ -4,36 +4,36 @@ import { CalendarClock, CheckCircle2, ClipboardList, FileText } from "lucide-rea
 const workflowSteps = [
   {
     icon: FileText,
-    title: "Define Maintenance Templates",
+    title: "Work Order Creation",
     description:
-      "Create reusable preventive-maintenance templates with defined tasks and supporting maintenance information. Standardized templates help teams prepare consistent maintenance requirements before equipment schedules are configured.",
-    details: ["Task definitions", "Template master data"],
+      "Work orders can be created through AI predictive model triggers, sensor threshold breaches, scheduled preventive maintenance plans, or manual supervisor entry.",
+    details: ["AI & Sensor Triggers", "Scheduled & Manual Work Orders"],
   },
   {
     icon: CalendarClock,
-    title: "Configure Maintenance Schedules",
+    title: "Technician Auto-Assignment",
     description:
-      "Connect maintenance templates to the relevant rig equipment and configure planned schedules. Dedicated filters and equipment lookups help teams review, update, and organize active maintenance plans.",
-    details: ["Rig and equipment association", "Schedule filtering and updates"],
+      "Work orders are automatically routed to available technicians based on their skills, assigned zones, and equipment criticality ratings.",
+    details: ["Skill & Zone", "Criticality Rating"],
   },
   {
     icon: ClipboardList,
-    title: "Generate and Assign Work Orders",
+    title: "Field Maintenance & Verification",
     description:
-      "Generate work orders manually when required or automatically when preventive-maintenance schedules become eligible. Assigned users receive the resulting work through their dedicated work-order workflow.",
-    details: ["Manual generation", "Eligible schedule automation"],
+      "Technicians update work order status and attach verification photos through mobile access. AI vision detects maintenance-specific physical actions, while face recognition confirms technician identity.",
+    details: ["Mobile Work Order Updates", "AI Maintenance Verification"],
   },
   {
     icon: CheckCircle2,
-    title: "Track Tasks and Complete Work",
+    title: "Verified Closure & Inventory Update",
     description:
-      "Allow assigned users to review their work orders, start maintenance activities, and save progress against individual tasks. Completed activities move through a defined work-order completion workflow.",
-    details: ["Task progress updates", "Work-order completion"],
+      "Work orders automatically close upon visual confirmation, while unverified tasks remain open. Closing a work order automatically deducts consumed spare parts from inventory stock, and verified tasks generate time-stamped audit records.",
+    details: ["Verified Work Order Closure", "Automatic Parts Deduction"],
   },
 ];
 
 const workflowImage =
-  process.env.PUBLIC_URL + "/Industrial%20Maintenance%20Control%20Room.png";
+  process.env.PUBLIC_URL + "/Cinematic%20Teal%20Maintenance%20Dashboard.png";
 
 export default function ErpMaintenanceWorkflowSection() {
   const sectionRef = useRef(null);
@@ -78,31 +78,31 @@ export default function ErpMaintenanceWorkflowSection() {
   return (
     <section
       ref={sectionRef}
-      className={`erp-workflow overflow-hidden border-b border-white/[0.08] bg-[#050809] px-[5%] pb-4 pt-14 sm:py-20 lg:py-24 ${isActive ? "is-active" : ""}`}
+      className={`erp-workflow relative overflow-hidden border-b border-white/[0.08] bg-[#050809] px-[5%] pb-4 pt-8 before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_8%_52%,rgba(26,159,160,0.08),transparent_28%),radial-gradient(circle_at_78%_34%,rgba(26,159,160,0.045),transparent_32%)] sm:pb-20 sm:pt-10 lg:pb-24 lg:pt-12 ${isActive ? "is-active" : ""}`}
     >
-      <div className="mx-auto grid w-full max-w-[1920px] items-stretch gap-12 lg:grid-cols-[minmax(0,0.92fr)_56px_minmax(420px,1.08fr)] lg:gap-8 xl:gap-12">
-        <div>
+      <div className="relative mx-auto grid w-full max-w-[1920px] items-stretch gap-12 lg:grid-cols-[minmax(0,1.06fr)_56px_minmax(420px,0.94fr)] lg:gap-7 xl:gap-10">
+        <div className="flex flex-col">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#1a9fa0]">
             Maintenance Workflow
           </p>
           <h2 className="mt-4 max-w-[620px] text-[clamp(36px,4.7vw,56px)] font-extrabold leading-[1.08] tracking-[-0.02em] text-white">
-            From Preventive Planning to <span className="text-[#1a9fa0]">Work Completion.</span>
+            From Fault Detection to <span className="text-[#1a9fa0]">Verified Resolution.</span>
           </h2>
           <p className="site-section-description mt-6 max-w-[590px]">
-            Manage preventive maintenance through a connected workflow, from template and schedule setup to work-order generation, assigned task execution, and completion.
+            A computerized maintenance management system supporting AI-triggered, sensor-threshold, scheduled preventive maintenance, and manual work order creation. Work orders are assigned to available technicians, updated through mobile access, and tracked through to verified resolution.
           </p>
 
-          <div className="relative mt-7 aspect-[16/9] max-w-[720px] overflow-hidden">
+          <div className="relative mt-8 aspect-[4/3] w-full max-w-[680px] overflow-hidden bg-[#050809]">
             {workflowImage ? (
               <img
                 src={workflowImage}
-                alt="Rig maintenance dashboard supporting preventive-maintenance workflows"
-                className="absolute inset-0 h-full w-full object-cover [mask-image:linear-gradient(to_bottom,transparent_0%,black_12%,black_76%,transparent_100%)] opacity-80"
+                alt="Cinematic laptop displaying the FutuDrill ERP work orders and maintenance dashboard"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             ) : (
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_62%_48%,rgba(26,159,160,0.12),transparent_24%),linear-gradient(to_bottom,transparent_0%,rgba(10,23,25,0.52)_38%,transparent_100%)] opacity-70" />
             )}
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#050809_0%,transparent_18%,transparent_76%,#050809_100%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#050809_0%,transparent_8%,transparent_92%,#050809_100%),linear-gradient(to_bottom,#050809_0%,transparent_7%,transparent_90%,#050809_100%)]" />
           </div>
         </div>
 
@@ -126,13 +126,13 @@ export default function ErpMaintenanceWorkflowSection() {
           {workflowSteps.map(({ icon: Icon, title, description, details }, index) => (
             <article
               key={title}
-              className="erp-workflow__card group relative flex gap-5 overflow-hidden border border-white/[0.08] bg-[#0b1214] p-5 transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-[#1a9fa0]/45 hover:bg-[#0e1719] sm:p-6"
+              className="erp-workflow__card group relative flex gap-5 overflow-hidden rounded-[6px] border border-white/[0.07] bg-[linear-gradient(110deg,#0b1517_0%,#0a1214_100%)] p-5 shadow-[0_14px_34px_rgba(0,0,0,0.16)] transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-[#1a9fa0]/45 hover:bg-[#0e1719] sm:p-6"
               style={{
                 animationDelay: `${0.12 + index * 1.25}s`,
                 "--workflow-delay": `${0.12 + index * 1.25}s`,
               }}
             >
-              <div className="erp-workflow__card-icon flex h-11 w-11 shrink-0 items-center justify-center border border-[#1a9fa0]/25 bg-[#1a9fa0]/[0.08] text-[#22c4c5] transition-colors duration-300 group-hover:border-[#1a9fa0]/55">
+              <div className="erp-workflow__card-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-[6px] border border-[#1a9fa0]/30 bg-[#1a9fa0]/[0.12] text-[#22c4c5] transition-colors duration-300 group-hover:border-[#1a9fa0]/55">
                 <Icon aria-hidden="true" size={20} strokeWidth={1.8} />
               </div>
               <div>
